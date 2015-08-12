@@ -1,0 +1,66 @@
+<head>
+  <title>the kove</title>
+</head>
+
+<body></body>
+<template name="layout">
+	{{> _header}}
+	<div class="container">
+		{{> yield}}
+	</div>
+</template>
+
+<template name="notFound">
+	<h3>NOT FOUND!</h3>
+</template>
+
+<template name="_header">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{pathFor 'home'}}">The Kove</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav"></ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{pathFor 'projects'}}" class="nav-link">Projects</a></li>
+					<li><a href="/blog" class="nav-link">Blog</a></li>
+					<li><a href="{{pathFor 'about'}}" class="nav-link">About</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div><!--/.container-fluid -->
+	</nav>
+</template>
+
+
+
+<template name="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10">
+				home template
+			</div>
+			<div class="col-sm-2">
+				side nav list of stuff
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="projects">
+	Projects
+</template>
+
+<template name="blog">
+	Blog
+</template>
+
+<template name="about">
+	About
+</template>

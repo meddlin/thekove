@@ -62,5 +62,131 @@
 </template>
 
 <template name="about">
-	About
+	<!-- THE MEDDLIN PROJECT -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>The MeddlinProject</h3>
+			<label>an experiment in network penetration testing</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			insert pic
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				"You may have 10TB of data on your target, but if you can't get to the 4KB file of password hashes it's all useless." The capstone project of my final semester at SELU--this project is designed to innovate network penetration testing by reorganizing the flat text data produced from professional tools such as nmap and recon-ng. The Meteor.js framework was chosen because of the reactive data and rapid prototyping abilities it provided.
+			</p>
+			<label>Technologies: Meteor.js 1.0 | MongoDB | JavaScript | nmap | recon-ng</label>
+		</div>
+	</div>
+
+	{{> _portfolio_hr}}
+
+	<!-- CPAT : Collaborative Penetration-Testing and Analysis Toolkit -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>CPAT: Collaborative Penetration-Testing and Analysis Toolkit</h3>
+			<br />
+			<p>
+				The Meddlin Project spawned a research paper for the 2014 IEEE Aerospace Conference. The paper details how this software system benefits the reconnaissance phase of a penetration test, and can potentially be used for "war-driving" and spy drone installations due to the reactive data architecture of the Meteor.js framework.
+			</p>
+		</div>
+	</div>
+
+	{{> _portfolio_hr}}
+
+	<!-- Biomed Tracker -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Biomed Tracker</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			insert pic
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				A custom inventory management and tracking system for Biomed Plus, LLC. An open-source and flexible platform was needed in order to implement a low-cost, effective business solution with rapid results. Once again, Meteor.js presented itself as an excellent solution.
+			</p>
+			<label>Technologies: Meteor.js 1.1.0.3 | MongoDB | JavaScript</label>
+		</div>
+	</div>
+
+	{{> _portfolio_hr}}
+
+	<!-- Lockdown -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Lockdown</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			insert pic
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				What better way to explore a new language than with a cipher and string manipulation?<br />
+				Lockdown was a group effort (and the final project) for a programming language survey course, and Go provided itself to be an interesting syntactical mix of C and Java. The cipher is a text-based program that stores and encrypts passwords so they don't have to struggle to remember the dozens of passwords we all use today.
+			</p>
+			<label>Technologies: Go(lang)</label>
+		</div>
+	</div>
+
+	{{> _portfolio_hr}}
+
+	<!-- Modern COBOL Development Environment -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Modern COBOL Development Environment</h3>
+			<br />
+			<p>
+				Struggling to maintain thousand of lines of COBOL in a TSO 3270 emulator is not fun. Realizing I could be much more productive with a text editor on the PC, I explored the plugins available for Sublime Text 3. After a fair amount of research, I now have a system in place to move the source code between z/OS and my local workstation, and edit COBOL source code with Sublime Text 3.
+				<br />
+				The system is complete with code convention plugins, COBOL snippets, and a custom JCL syntax plugin.
+			</p>
+			<label>Technologies: COBOL | JCL | z/OS | Sublime Text 3 | Python</label>
+		</div>
+	</div>
+
+	{{> _portfolio_hr}}
+
+	<!-- Java Sockets -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>JavaSockets</h3>
+			<label>a basic network protocol implementation</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			insert pic
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				A great way to explore network protocols is to build one yourself! That's exactly what JavaSockets is.<br />
+				JavaSockets is implemented as a command-line program, and served as an introduction to how network protocols work. Writing it was also an interesting experience in debugging applications that reside on both the client and server.
+			</p>
+			<label>Technologies: Java</label>
+		</div>
+	</div>
+
+</template>
+
+<template name="_portfolio_hr">
+	<div class="row">
+		<div class="col-xs-12">
+			<hr />
+		</div>
+	</div>
 </template>

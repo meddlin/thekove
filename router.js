@@ -15,16 +15,6 @@ Router.route('/', {
 });
 
 /*
-	/blog ROUTE
-*/
-Router.route('/blog', {
-	name: 'blog',
-	action: function() {
-		this.render('blog');
-	}
-});
-
-/*
 	/about ROUTE
 */
 Router.route('/about', {

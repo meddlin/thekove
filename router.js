@@ -27,12 +27,17 @@ Router.route('/projects', {
 /*
 	/blog ROUTE
 */
-Router.route('/blog', {
+/*Router.route('/blog', {
 	name: 'blog',
 	action: function() {
 		this.render('blog');
 	}
-});
+});*/
+/*Router.route('/blog/:slug', {
+	action: function() {
+		this.render('singleBlogPost');
+	}
+});*/
 
 /*
 	/about ROUTE

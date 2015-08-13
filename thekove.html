@@ -32,6 +32,7 @@
 					<li><a href="{{pathFor 'projects'}}" class="nav-link">Projects</a></li>
 					<li><a href="/blog" class="nav-link">Blog</a></li>
 					<li><a href="{{pathFor 'about'}}" class="nav-link">About</a></li>
+					<li>{{> loginButtons align="right"}}</li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
@@ -53,12 +54,26 @@
 	</div>
 </template>
 
-<template name="projects">
-	Projects
+<template name="myBlogIndexTemplate">
+  <h1>Welcome to my Blog</h1>
+  {{> blogIndex}}
+  <!-- <ul>
+    {{#each posts}}
+      <li>
+        <h2>{{title}}</h2>
+        <p>Published on {{publishedAt}}</p>
+        <p>Excerpt: {{excerpt}}</p>
+      </li>
+    {{/each}}
+  </ul> -->
 </template>
 
-<template name="blog">
-	Blog
+<template name="singleBlogPost">
+	{{> blogShow}}
+</template>
+
+<template name="projects">
+	Projects
 </template>
 
 <template name="about">

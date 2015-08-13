@@ -5,8 +5,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-orionjs:core
 twbs:bootstrap
 fortawesome:fontawesome
-orionjs:bootstrap
 iron:router
+ryw:blog
+yogiben:admin
+accounts-ui
+accounts-password

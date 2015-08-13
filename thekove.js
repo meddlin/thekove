@@ -1,19 +1,29 @@
+AdminConfig = { 
+  adminEmails: ['drushing@admin.com'], 
+  collections: 
+  { 
+    /*Posts: {}, 
+    Comments: {} */
+  }
+}
+
+
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
+  Blog.config({
+    blogIndexTemplate: 'myBlogIndexTemplate',
+    blogShowTemplate: 'singleBlogPost',
+
+    syntaxHighlighting: true,
+    syntaxHighlightingTheme: 'atelier-dune.dark'
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
+  Template.home.helpers({
   });
+
+  Template.home.events({
+  });
+
 }
 
 if (Meteor.isServer) {
@@ -21,3 +31,4 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+

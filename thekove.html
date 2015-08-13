@@ -8,6 +8,7 @@
 	<div class="container">
 		{{> yield}}
 	</div>
+	{{> _footer}}
 </template>
 
 <template name="notFound">
@@ -29,13 +30,16 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav"></ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{{pathFor 'projects'}}" class="nav-link">Projects</a></li>
 					<li><a href="/blog" class="nav-link">Blog</a></li>
 					<li><a href="{{pathFor 'about'}}" class="nav-link">About</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div><!--/.container-fluid -->
 	</nav>
+</template>
+
+<template name="_footer">
+
 </template>
 
 
@@ -53,19 +57,31 @@
 	</div>
 </template>
 
-<template name="projects">
-	Projects
-</template>
-
 <template name="blog">
 	Blog
 </template>
 
 <template name="about">
+	<div class="row">
+		<br />
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="col-xs-2">
+					<div class="portfolio-pic-square"></div>
+				</div>
+				<div class="col-xs-10">
+					<p><label>Name&nbsp;</label>Darrien Rushing</p>
+					<p><label>Email&nbsp;</label>drushing.dev@gmail.com</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{> _portfolio_hr}}
+
 	<!-- THE MEDDLIN PROJECT -->
 	<div class="row">
 		<div class="col-xs-12">
-			<h3>The MeddlinProject</h3>
+			<h3>The Meddlin Project</h3>
 			<label>an experiment in network penetration testing</label>
 		</div>
 	</div>

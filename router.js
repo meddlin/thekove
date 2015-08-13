@@ -15,16 +15,6 @@ Router.route('/', {
 });
 
 /*
-	/projects ROUTE
-*/
-Router.route('/projects', {
-	name: 'projects',
-	action: function() {
-		this.render('projects');
-	}
-});
-
-/*
 	/blog ROUTE
 */
 Router.route('/blog', {

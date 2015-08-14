@@ -18,6 +18,8 @@ if (Meteor.isClient) {
   Blog.config({
     blogIndexTemplate: 'myBlogIndexTemplate',
     blogShowTemplate: 'singleBlogPost',
+    /*authorRole: 'blogAuthor',*/
+    adminRole: 'admin',
 
     syntaxHighlighting: true,
     syntaxHighlightingTheme: 'atelier-dune.dark'

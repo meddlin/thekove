@@ -60,16 +60,17 @@
 
 <template name="myBlogIndexTemplate">
   <h1>Welcome to my Blog</h1>
-  {{> blogIndex}}
-  <!-- <ul>
+  <!-- {{> blogIndex}} -->
+  <ul>
     {{#each posts}}
       <li>
         <h2>{{title}}</h2>
+        <a href="{{pathFor 'blogShow'}}">title: {{title}}</a>
         <p>Published on {{publishedAt}}</p>
         <p>Excerpt: {{excerpt}}</p>
       </li>
     {{/each}}
-  </ul> -->
+  </ul>
 </template>
 
 <template name="singleBlogPost">

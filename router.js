@@ -9,8 +9,12 @@ Router.configure({
 */
 Router.route('/', {
 	name: 'home',
+	subscriptions: function() {
+		return Meteor.subscribe('blog_posts');
+	},
 	action: function() {
-		this.render('home');
+		/*this.render('home');*/
+		Router.go('/blog');
 	}
 });
 

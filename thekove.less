@@ -1,19 +1,41 @@
-@dark-blue: #0D1358;
-@topaz-1: #39CDC4;
-@topaz-2: #56B8AE;
-@topaz-3: #239C8E;
-@dark-gray: #535353;
+@dark-blue: #283447;
+@lighter-blue: #2F88D3;
+@topaz: #259C93;
+@pastel: #E3D9CC;
+@peach: #E45C4D;
+@background-gray: rgb(208, 208, 208);
 /*
 	#35 -- Andaz, on the link below
 	http://www.dtelepathy.com/blog/inspiration/beautiful-color-palettes-for-your-next-web-project
 */
-
-
-.portfolio-pic-square {
-    width: 200px;
-    height: 140px;
-    margin-top: -30px;
-    margin-left: -40px;
-    background: @topaz-2;
-    position: absolute;
+body {
+	/*background-color: @pastel;*/
+	background-color: @background-gray;
 }
+
+/* navbar styles */
+.navbar.navbar-default {
+	background-color: @dark-blue;
+	border-radius: 0;
+}
+.nav-link {
+	color: @topaz !important;
+}
+.navbar-brand {
+	color: @topaz !important;
+}
+/* END : navbar styles */
+
+
+/* blog post styles */
+.post__title-link {
+	cursor: pointer;
+	font-size: 1.4em;
+	color: @lighter-blue;
+}
+
+.post__panel {
+	border-radius: 0;
+	box-shadow: 0 5px 5px rgba(10, 10, 10, 0.12);
+}
+/* END : blog post styles */

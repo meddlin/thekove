@@ -59,18 +59,17 @@
 </template>
 
 <template name="myBlogIndexTemplate">
-  <h1>Welcome to my Blog</h1>
-  <!-- {{> blogIndex}} -->
-  <ul>
-    {{#each posts}}
-      <li>
-        <h2>{{title}}</h2>
-        <a href="{{pathFor 'blogShow'}}">title: {{title}}</a>
-        <p>Published on {{publishedAt}}</p>
-        <p>Excerpt: {{excerpt}}</p>
-      </li>
-    {{/each}}
-  </ul>
+  {{#each posts}}
+  	<div class="col-sm-10 col-sm-offset-1">
+		<div class="panel panel-default post__panel">
+			<div class="panel-body">
+			  	<label><a href="{{pathFor 'blogShow'}}" class="post__title-link">{{title}}</a></label>
+			  	<p>{{publishedAt}}</p>
+			  	<p>{{excerpt}}</p>
+		  	</div>
+	  	</div>
+  	</div>
+  {{/each}}
 </template>
 
 <template name="singleBlogPost">
@@ -86,9 +85,6 @@
 		<br />
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<div class="col-xs-2">
-					<div class="portfolio-pic-square"></div>
-				</div>
 				<div class="col-xs-10">
 					<p><label>Name&nbsp;</label>Darrien Rushing</p>
 					<p><label>Email&nbsp;</label>drushing.dev@gmail.com</p>

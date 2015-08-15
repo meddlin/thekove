@@ -5,26 +5,66 @@
 @peach: #E45C4D;
 @background-gray: rgb(208, 208, 208);
 /*
-	#35 -- Andaz, on the link below
+	#10 -- Our Little Projects, on the link below
 	http://www.dtelepathy.com/blog/inspiration/beautiful-color-palettes-for-your-next-web-project
 */
-body {
-	/*background-color: @pastel;*/
-	background-color: @background-gray;
-}
+
+/* fonts */
+@Josefin: Josefin Sans;
+@Monteserrat: 'Monteserrat', sans-serif;
+
+
+body { background-color: @background-gray; }
 
 /* navbar styles */
 .navbar.navbar-default {
 	background-color: @dark-blue;
 	border-radius: 0;
+	font-family: @Monteserrat;
 }
-.nav-link {
-	color: @topaz !important;
-}
-.navbar-brand {
-	color: @topaz !important;
-}
+.nav-link { color: @topaz !important; }
+.navbar-brand { color: @topaz !important; }
 /* END : navbar styles */
+
+/* about styles */
+.about__info-panel {
+	border-radius: 0;
+	box-shadow: 0 3px 10px rgb(136, 136, 136), 0 -3px 10px rgb(136, 136, 136);
+}
+
+.about__row {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+}
+
+.about-info__name {
+	font-family: @Monteserrat;
+	font-weight: 700;
+	font-size: 1.4em;
+}
+.about-info__email {
+	font-family: @Josefin;
+	font-size: 1.2em;
+}
+.about-info {
+	font-family: @Josefin;
+	font-size: 1.1em;
+}
+
+.portfolio__title {
+	font-family: @Monteserrat;
+	font-size: 1.6em;
+}
+.portfolio__title-sub {
+	font-family: @Monteserrat;
+	font-size: 1em;
+}
+.portfolio__description {
+	font-family: @Josefin;
+}
+/* END : about styles*/
 
 
 /* blog post styles */

@@ -1,13 +1,15 @@
 <head>
   <title>the kove</title>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
 </head>
 
 <body></body>
 <template name="layout">
 	{{> _header}}
-	<div class="container">
+
 		{{> yield}}
-	</div>
+
 	{{> _footer}}
 </template>
 
@@ -81,135 +83,37 @@
 </template>
 
 <template name="about">
-	<div class="row">
-		<br />
-		<div class="panel panel-default">
+	<div class="row about__row">
+		<div class="panel panel-default about__info-panel">
 			<div class="panel-body">
-				<div class="col-xs-10">
-					<p><label>Name&nbsp;</label>Darrien Rushing</p>
-					<p><label>Email&nbsp;</label>drushing.dev@gmail.com</p>
+				<div class="col-xs-10 col-xs-offset-1">
+					<p>
+						<div class="about-info__name">Darrien Rushing</div>
+						<div class="about-info__email">drushing.dev@gmail.com</div>
+					</p>
+					<p class="about-info">
+						I'm currently a software developer in which my full-time engagements involve COBOL, VB.NET, and ASP.NET. Away from that, I also spend a lot of time working with the Meteor.js framework--such as this website ;D
+					</p>
+					<p class="about-info">
+						My passion lies in network security, and I love pretty much everything connected to tech. Below are some projects I've worked on recently.
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	{{> _portfolio_hr}}
 
-	<!-- THE MEDDLIN PROJECT -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>The Meddlin Project</h3>
-			<label>an experiment in network penetration testing</label>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			insert pic
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<p>
-				"You may have 10TB of data on your target, but if you can't get to the 4KB file of password hashes it's all useless." The capstone project of my final semester at SELU--this project is designed to innovate network penetration testing by reorganizing the flat text data produced from professional tools such as nmap and recon-ng. The Meteor.js framework was chosen because of the reactive data and rapid prototyping abilities it provided.
-			</p>
-			<label>Technologies: Meteor.js 1.0 | MongoDB | JavaScript | nmap | recon-ng</label>
-		</div>
-	</div>
-
-	{{> _portfolio_hr}}
-
-	<!-- CPAT : Collaborative Penetration-Testing and Analysis Toolkit -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>CPAT: Collaborative Penetration-Testing and Analysis Toolkit</h3>
-			<br />
-			<p>
-				The Meddlin Project spawned a research paper for the 2014 IEEE Aerospace Conference. The paper details how this software system benefits the reconnaissance phase of a penetration test, and can potentially be used for "war-driving" and spy drone installations due to the reactive data architecture of the Meteor.js framework.
-			</p>
-		</div>
-	</div>
-
-	{{> _portfolio_hr}}
-
-	<!-- Biomed Tracker -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>Biomed Tracker</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			insert pic
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<p>
-				A custom inventory management and tracking system for Biomed Plus, LLC. An open-source and flexible platform was needed in order to implement a low-cost, effective business solution with rapid results. Once again, Meteor.js presented itself as an excellent solution.
-			</p>
-			<label>Technologies: Meteor.js 1.1.0.3 | MongoDB | JavaScript</label>
-		</div>
-	</div>
-
-	{{> _portfolio_hr}}
-
-	<!-- Lockdown -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>Lockdown</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			insert pic
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<p>
-				What better way to explore a new language than with a cipher and string manipulation?<br />
-				Lockdown was a group effort (and the final project) for a programming language survey course, and Go provided itself to be an interesting syntactical mix of C and Java. The cipher is a text-based program that stores and encrypts passwords so they don't have to struggle to remember the dozens of passwords we all use today.
-			</p>
-			<label>Technologies: Go(lang)</label>
-		</div>
-	</div>
-
-	{{> _portfolio_hr}}
-
-	<!-- Modern COBOL Development Environment -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>Modern COBOL Development Environment</h3>
-			<br />
-			<p>
-				Struggling to maintain thousand of lines of COBOL in a TSO 3270 emulator is not fun. Realizing I could be much more productive with a text editor on the PC, I explored the plugins available for Sublime Text 3. After a fair amount of research, I now have a system in place to move the source code between z/OS and my local workstation, and edit COBOL source code with Sublime Text 3.
-				<br />
-				The system is complete with code convention plugins, COBOL snippets, and a custom JCL syntax plugin.
-			</p>
-			<label>Technologies: COBOL | JCL | z/OS | Sublime Text 3 | Python</label>
-		</div>
-	</div>
-
-	{{> _portfolio_hr}}
-
-	<!-- Java Sockets -->
-	<div class="row">
-		<div class="col-xs-12">
-			<h3>JavaSockets</h3>
-			<label>a basic network protocol implementation</label>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			insert pic
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<p>
-				A great way to explore network protocols is to build one yourself! That's exactly what JavaSockets is.<br />
-				JavaSockets is implemented as a command-line program, and served as an introduction to how network protocols work. Writing it was also an interesting experience in debugging applications that reside on both the client and server.
-			</p>
-			<label>Technologies: Java</label>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1"> 
+				{{> _portfolio_hr}}
+				{{> about_meddlin_project}}
+				{{> _portfolio_hr}}
+				{{> about_biomed}}
+				{{> _portfolio_hr}}
+				{{> about_cobol_environment}}
+				{{> _portfolio_hr}}
+				{{> about_java_sockets}}
+			</div>
 		</div>
 	</div>
 
@@ -217,8 +121,72 @@
 
 <template name="_portfolio_hr">
 	<div class="row">
+		<div class="col-xs-12"><hr /></div>
+	</div>
+</template>
+
+<template name="about_meddlin_project">
+	<div class="row">
+		<div class="col-sm-6">
+			<label class="portfolio__title">The Meddlin Project</label>
+			<br />
+			<label class="portfolio__title-sub">an experiment in network penetration testing</label>
+			<p class="portfolio__description">
+				"You may have 10TB of data on your target, but if you can't get to the 4KB file of password hashes it's all useless." The capstone project of my final semester at SELU--this project is designed to innovate network penetration testing by reorganizing the flat text data produced from professional tools such as nmap and recon-ng. The Meteor.js framework was chosen because of the reactive data and rapid prototyping abilities it provided.
+			</p>
+			<label class="portfolio__title-sub">Meteor.js 1.0 | MongoDB | JavaScript | nmap | recon-ng</label>
+		</div>
+		<div class="col-sm-6">
+			<img class="img-responsive" src="screen_tmp.png" />
+		</div>
+	</div>
+</template>
+
+<template name="about_biomed">
+	<div class="row">
 		<div class="col-xs-12">
-			<hr />
+			<label class="portfolio__title">Biomed Tracker</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p class="portfolio__description">
+				A custom inventory management and tracking system for Biomed Plus, LLC. An open-source and flexible platform was needed in order to implement a low-cost, effective business solution with rapid results. Once again, Meteor.js presented itself as an excellent solution.
+			</p>
+			<label class="portfolio__title-sub">Meteor.js 1.1.0.3 | MongoDB | JavaScript</label>
+		</div>
+	</div>
+</template>
+
+<template name="about_cobol_environment">
+	<div class="row">
+		<div class="col-xs-12">
+			<label class="portfolio__title">Modern COBOL Development Environment</label>
+			<br />
+			<p class="portfolio__description">
+				Struggling to maintain thousand of lines of COBOL in a TSO 3270 emulator is not fun. Realizing I could be much more productive with a text editor on the PC, I explored the plugins available for Sublime Text 3. After a fair amount of research, I now have a system in place to move the source code between z/OS and my local workstation, and edit COBOL source code with Sublime Text 3.
+				<br />
+				The system is complete with code convention plugins, COBOL snippets, and a custom JCL syntax plugin.
+			</p>
+			<label class="portfolio__title-sub">COBOL | JCL | z/OS | Sublime Text 3 | Python</label>
+		</div>
+	</div>
+</template>
+
+<template name="about_java_sockets">
+	<div class="row">
+		<div class="col-sm-6">
+			<img src="screen_javasockets.png" class="img-responsive" />
+		</div>
+		<div class="col-sm-6">
+			<label class="portfolio__title">JavaSockets</label>
+			<br />
+			<label>a basic network protocol implementation</label>
+			<p class="portfolio__description">
+				A great way to explore network protocols is to build one yourself! That's exactly what JavaSockets is.<br />
+				JavaSockets is implemented as a command-line program, and served as an introduction to how network protocols work. Writing it was also an interesting experience in debugging applications that reside on both the client and server.
+			</p>
+			<label class="portfolio__title-sub">Java</label>
 		</div>
 	</div>
 </template>

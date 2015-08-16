@@ -14,7 +14,11 @@
 @Monteserrat: 'Monteserrat', sans-serif;
 
 
-body { background-color: @background-gray; }
+body { 
+	background-color: @background-gray;
+	overflow-x: hidden;
+}
+
 
 /* navbar styles */
 .navbar.navbar-default {
@@ -25,6 +29,21 @@ body { background-color: @background-gray; }
 .nav-link { color: @topaz !important; }
 .navbar-brand { color: @topaz !important; }
 /* END : navbar styles */
+
+
+/* home styles */
+.home__info-blurb {
+	padding-right: 1000px;
+	margin-right: -1000px;
+	background-color: @lighter-blue;
+	border-radius: 0;
+	box-shadow: 0 5px 5px rgba(10, 10, 10, 0.12);
+	p {
+		color: white;
+	}
+}
+/* END : home styles */
+
 
 /* about styles */
 .about__info-panel {

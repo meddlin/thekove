@@ -10,11 +10,11 @@ Router.configure({
 Router.route('/', {
 	name: 'home',
 	subscriptions: function() {
-		return Meteor.subscribe('blog_posts');
+		return Meteor.subscribe('posts', 3);
 	},
 	action: function() {
-		/*this.render('home');*/
-		Router.go('/blog');
+		this.render('home');
+		/*Router.go('/blog');*/
 	}
 });
 
@@ -27,3 +27,4 @@ Router.route('/about', {
 		this.render('about');
 	}
 });
+

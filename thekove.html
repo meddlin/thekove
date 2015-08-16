@@ -52,9 +52,27 @@
 		<div class="row">
 			<div class="col-sm-10">
 				home template
+				{{#each latestPosts}}
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="panel panel-default post__panel">
+							<div class="panel-body">
+							  	<label><a href="{{pathFor 'blogShow'}}" class="post__title-link">{{title}}</a></label>
+							  	<p>{{publishedAt}}</p>
+							  	<p>{{excerpt}}</p>
+						  	</div>
+					  	</div>
+				  	</div>
+				{{/each}}
 			</div>
 			<div class="col-sm-2">
-				side nav list of stuff
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>Hi, my name is Darrien. I write about software, dabble in network security, and would love to share about mission trips with my local church when I can. Poke around, shoot me an email.
+						<br />
+						Enjoy!
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -92,7 +110,7 @@
 						<div class="about-info__email">drushing.dev@gmail.com</div>
 					</p>
 					<p class="about-info">
-						I'm currently a software developer in which my full-time engagements involve COBOL, VB.NET, and ASP.NET. Away from that, I also spend a lot of time working with the Meteor.js framework--such as this website ;D
+						I'm a software developer, and a tinkerer at heart. My current full-time engagements involve COBOL, VB.NET, and ASP.NET. I also have a couple projects utilizing the Meteor.js framework--such as this website ;D 
 					</p>
 					<p class="about-info">
 						My passion lies in network security, and I love pretty much everything connected to tech. Below are some projects I've worked on recently.

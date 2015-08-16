@@ -10,6 +10,9 @@ AdminConfig = {
 
 if (Meteor.isClient) {
   Template.home.helpers({
+    latestPosts: function() {
+      return Post.find().fetch();
+    }
   });
 
   Template.home.events({
@@ -23,12 +26,6 @@ if (Meteor.isClient) {
 
     syntaxHighlighting: true,
     syntaxHighlightingTheme: 'atelier-dune.dark'
-  });
-
-  Template.home.helpers({
-  });
-
-  Template.home.events({
   });
 
 }

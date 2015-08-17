@@ -10,7 +10,7 @@ Router.configure({
 Router.route('/', {
 	name: 'home',
 	subscriptions: function() {
-		return Meteor.subscribe('posts', 3);
+		return Meteor.subscribe('posts', 5);
 	},
 	action: function() {
 		this.render('home');

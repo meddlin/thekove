@@ -7,6 +7,10 @@ AdminConfig = {
   }
 }
 
+Accounts.config({
+  forbidClientAccountCreation: true
+});
+
 
 if (Meteor.isClient) {
   Template.home.helpers({

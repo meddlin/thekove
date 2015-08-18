@@ -2,7 +2,7 @@ AdminConfig = {
   adminEmails: ['drushing@admin.com'], 
   collections: 
   { 
-    /*Posts: {}, 
+    /*Post: {}, 
     Comments: {} */
   }
 }

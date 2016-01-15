@@ -110,7 +110,7 @@
 						<div class="about-info__repo"><a href="https://github.com/meddlin">https://github.com/meddlin</a></div>
 					</p>
 					<p class="about-info">
-						I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve COBOL, VB.NET, and ASP.NET. I've also taken a likening to web development with Meteor.js, and have a couple ongoing projects utilizing it (like this website!).
+						I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve ASP.NET, Documentum, and JavaScript. I've also taken a likening to web development with Meteor.js, and have a couple ongoing projects utilizing it (like this website!).
 					</p>
 					<p class="about-info">
 						Here are some projects I've worked on recently.
@@ -122,7 +122,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1"> 
+			<div class="col-sm-8 col-sm-offset-2"> 
 				{{> _portfolio_hr}}
 				{{> about_biomed}}
 				{{> _portfolio_hr}}
@@ -143,6 +143,24 @@
 	</div>
 </template>
 
+<template name="about_biomed">
+	<div class="row">
+		<div class="col-xs-12">
+			<label class="portfolio__title">Assurance</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p class="portfolio__description">
+				A custom inventory management and tracking system for Biomed Plus, LLC. An open-source and flexible platform was needed in order to implement a low-cost, effective business solution with rapid results. Once again, Meteor.js presented itself as an excellent solution.
+				<br /><br />
+				<i>currently in development</i>
+			</p>
+			<label class="portfolio__title-sub">Meteor.js 1.2.1&nbsp;&nbsp;|&nbsp;&nbsp;MongoDB&nbsp;&nbsp;|&nbsp;&nbsp;JavaScript</label>
+		</div>
+	</div>
+</template>
+
 <template name="about_meddlin_project">
 	<div class="row">
 		<div class="col-sm-6">
@@ -160,33 +178,13 @@
 	</div>
 </template>
 
-<template name="about_biomed">
-	<div class="row">
-		<div class="col-xs-12">
-			<label class="portfolio__title">Biomed Tracker</label>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<p class="portfolio__description">
-				A custom inventory management and tracking system for Biomed Plus, LLC. An open-source and flexible platform was needed in order to implement a low-cost, effective business solution with rapid results. Once again, Meteor.js presented itself as an excellent solution.
-				<br /><br />
-				<i>currently in development</i>
-			</p>
-			<label class="portfolio__title-sub">Meteor.js 1.1.0.3&nbsp;&nbsp;|&nbsp;&nbsp;MongoDB&nbsp;&nbsp;|&nbsp;&nbsp;JavaScript</label>
-		</div>
-	</div>
-</template>
-
 <template name="about_cobol_environment">
 	<div class="row">
 		<div class="col-xs-12">
 			<label class="portfolio__title">Modern COBOL Development Environment</label>
 			<br />
 			<p class="portfolio__description">
-				Struggling to maintain thousand of lines of COBOL in a TSO 3270 emulator is not fun. Realizing I could be much more productive with a text editor on the PC, I explored the plugins available for Sublime Text 3. After a fair amount of research, I now have a system in place to move the source code between z/OS and my local workstation, and edit COBOL source code with Sublime Text 3.
-				<br />
-				The system is complete with code convention plugins, COBOL snippets, and a custom JCL syntax plugin.
+				Struggling to maintain thousand of lines of COBOL in a TSO 3270 emulator is not fun. Realizing I could be much more productive with a text editor on the PC, I explored the plugins available for Sublime Text. After a fair amount of research, I developed an ad-hoc system to move the source code between z/OS and my local workstation. The system is complete with code convention plugins, COBOL snippets, and a custom JCL syntax plugin.
 			</p>
 			<label class="portfolio__title-sub">COBOL&nbsp;&nbsp;|&nbsp;&nbsp;JCL&nbsp;&nbsp;|&nbsp;&nbsp;z/OS&nbsp;&nbsp;|&nbsp;&nbsp;Sublime Text 3&nbsp;&nbsp;|&nbsp;&nbsp;Python</label>
 		</div>

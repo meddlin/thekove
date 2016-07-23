@@ -8,7 +8,6 @@ twbs:bootstrap
 fortawesome:fontawesome
 iron:router
 less
-ryw:blog
 yogiben:admin
 accounts-ui
 accounts-password

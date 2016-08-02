@@ -1,3 +1,8 @@
 <template name="blog">
 	<p>blog</p>
+	<div class="post-content">
+{{#markdown}}
+{{body}}
+{{/markdown}}
+	</div>
 </template>

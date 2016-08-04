@@ -1,5 +1,6 @@
 import '../ui/main-layout.js';
 import '../ui/landing.js';
+import '../ui/about.js';
 import '../ui/blog.js';
 import '../ui/new-document.js';
 import '../ui/admin.js';
@@ -7,6 +8,12 @@ import '../ui/admin.js';
 FlowRouter.route('/', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
+	}
+});
+
+FlowRouter.route('/about', {
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'about'});
 	}
 });
 

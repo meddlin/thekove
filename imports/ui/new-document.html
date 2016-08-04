@@ -1,3 +1,12 @@
 <template name="documentNew">
+	<div class="row">
+		<div class="col-xs-12">
+			<label>Document Title</label>
+			<input type="text" />
+			<button class="btn btn-success">Create</button>
+			<button class="btn btn-danger">Cancel</button>
+		</div>
+	</div>
+
 	{{> CodeMirror id="some-id" name="someName" options=editorOptions code=editorCode reactiveVar="varName"}}
 </template>

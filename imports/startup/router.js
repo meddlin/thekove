@@ -1,4 +1,6 @@
-import '../ui/main-layout.js';
+import '../ui/layouts/main-layout.js';
+import '../ui/layouts/portfolio-layout.js';
+
 import '../ui/landing.js';
 import '../ui/about.js';
 import '../ui/blog.js';
@@ -13,7 +15,7 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/about', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'about'});
+		BlazeLayout.render('portfolioLayout', {content: 'about'});
 	}
 });
 

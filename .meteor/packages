@@ -25,3 +25,5 @@ kadira:blaze-layout
 twbs:bootstrap
 markdown
 perak:codemirror
+aldeed:simple-schema
+aldeed:collection2

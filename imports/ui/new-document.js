@@ -10,7 +10,10 @@ Template.documentNew.helpers({
 	editorOptions() {
 		return {
 			lineNumbers: true,
-			mode: "markdown"
+			fixedGutter: false,
+			mode: "markdown",
+			lineWrapping: true,
+			cursorHeight: 0.85
 		}
 	}
 });
@@ -18,6 +21,8 @@ Template.documentNew.helpers({
 Template.documentNew.events({
 	'click .btn-success'() {
 		let title = $('.doc-title').val();
-		Meteor.call('BlogPosts.insert', title);
+		let tags = $('.doc-tags').val().split(',');
+
+		Meteor.call('BlogPosts.insert', title, tags);
 	}
 });

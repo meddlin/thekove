@@ -33,11 +33,12 @@ BlogPosts.schema = new SimpleSchema({
 });
 
 Meteor.methods({
-	'BlogPosts.insert'(title) {
+	'BlogPosts.insert'(title, tags) {
 		check(title, String);
 
 		BlogPosts.insert({
 			title: title,
+			tags: tags,
 			createdAt: new Date()
 		});
 	}

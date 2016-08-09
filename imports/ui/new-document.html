@@ -3,10 +3,22 @@
 		<div class="col-xs-12">
 			<label>Document Title</label>
 			<input type="text" class="doc-title" />
+			<label>Tags</label>
+			<input type="text" class="doc-tags" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
 			<button class="btn btn-success">Create</button>
 			<button class="btn btn-danger">Cancel</button>
 		</div>
-	</div>
+	</div> 
 
-	{{> CodeMirror id="some-id" name="someName" options=editorOptions code=editorCode reactiveVar="varName"}}
+	<!-- {{> CodeMirror id="editor-id" name="PostEditor" options=editorOptions code=editorCode reactiveVar="varName"}} -->
+	<div class="editor-wrap">
+		<textarea id="editor"></textarea>
+	</div>
+	<div class="preview-wrap">
+		<div id="preview"></div>
+	</div>
 </template>

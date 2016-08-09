@@ -7,7 +7,7 @@ import './new-document.html';
 
 
 Template.documentNew.helpers({
-	editorOptions() {
+	/*editorOptions() {
 		return {
 			lineNumbers: true,
 			fixedGutter: false,
@@ -15,7 +15,7 @@ Template.documentNew.helpers({
 			lineWrapping: true,
 			cursorHeight: 0.85
 		}
-	}
+	}*/
 });
 
 Template.documentNew.events({
@@ -24,5 +24,19 @@ Template.documentNew.events({
 		let tags = $('.doc-tags').val().split(',');
 
 		Meteor.call('BlogPosts.insert', title, tags);
+	},
+
+	'keyup .CodeMirror'() {
+		console.log('biff!');
 	}
+});
+
+Template.documentNew.onRendered( function() {
+	this.editor = CodeMirror.fromTextArea( this.find("#editor"), {
+		lineNumbers: true,
+		fixedGutter: false,
+		mode: "markdown",
+		lineWrapping: true,
+		cursorHeight: 0.85
+	});
 });

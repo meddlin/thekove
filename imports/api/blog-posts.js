@@ -31,3 +31,14 @@ BlogPosts.schema = new SimpleSchema({
 		type: Date
 	}
 });
+
+Meteor.methods({
+	'BlogPosts.insert'(title) {
+		check(title, String);
+
+		BlogPosts.insert({
+			title: title,
+			createdAt: new Date()
+		});
+	}
+});

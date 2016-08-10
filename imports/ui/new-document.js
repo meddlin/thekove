@@ -26,8 +26,25 @@ Template.documentNew.events({
 		Meteor.call('BlogPosts.insert', title, tags);
 	},
 
-	'keyup .CodeMirror'() {
-		console.log('biff!');
+	'keyup .CodeMirror'(event, template) {
+		let text = template.editor.getValue();
+
+		Meteor.callPromise('convertMarkdown', text)
+			.then( function(html) {
+				console.log(html);
+				$('#preview').html(html);
+			});
+
+		/*if (text !== "") {
+			Meteor.callPromise('convertMarkdown', text)
+				.then( function(html) {
+					$('#preview').html( html );
+					return Meteor.callPromise('updateDocument');
+				})
+				.catch( function(error) {
+					console.log(error.reason);
+				});
+		}*/
 	}
 });
 

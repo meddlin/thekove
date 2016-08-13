@@ -36,10 +36,12 @@ Meteor.methods({
 	'BlogPosts.insert'(title, tags) {
 		check(title, String);
 
-		BlogPosts.insert({
+		let id = BlogPosts.insert({
 			title: title,
 			tags: tags,
 			createdAt: new Date()
 		});
+
+		return id;
 	}
 });

@@ -32,6 +32,12 @@ BlogPosts.schema = new SimpleSchema({
 	}
 });
 
+if (Meteor.isServer) {
+	Meteor.publish('BlogPosts_single', function(id) {
+		return BlogPosts.find({_id: id});
+	});
+}
+
 Meteor.methods({
 	'BlogPosts.insert'(title, tags) {
 		check(title, String);

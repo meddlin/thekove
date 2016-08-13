@@ -5,7 +5,7 @@ import '../ui/landing.js';
 import '../ui/about.js';
 import '../ui/blog.js';
 import '../ui/documents.js';
-import '../ui/new-document.js';
+import '../ui/editor.js';
 import '../ui/admin.js';
 
 FlowRouter.route('/', {
@@ -32,17 +32,20 @@ FlowRouter.route('/documents', {
 	}
 });
 FlowRouter.route('/documents/:_id', {
+	subscriptions: function(params) {
+		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
+	},
 	action: function(params) {
 		console.log("ROUTE --> /documents/:_id", params._id);
-		BlazeLayout.render('mainLayout', {content: 'documents'});
+		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
 });
 
-FlowRouter.route('/document/new', {
+/*FlowRouter.route('/editor', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'documentNew'});
+		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
-});
+});*/
 
 FlowRouter.route('/admin', {
 	action: function(params) {

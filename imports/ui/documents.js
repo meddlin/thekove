@@ -10,7 +10,7 @@ Template.documents_newDocModal.events({
 	}
 });
 
-Template.documents_newDocModal.onRendered({
+Template.documents_newDocModal.onRendered( function() {
 	$('#new-document').validate({
 		rules: {
 			documentTitle: {

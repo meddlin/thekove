@@ -29,6 +29,8 @@ Template.documents_newDocModal.onRendered( function() {
 				.then( function(id) {
 					console.log("submitHandler on newDocModal " + id);
 					FlowRouter.go('/documents/:_id', {_id: id});
+					$('#new-document-modal').modal('hide');
+					$('.modal-backdrop').remove();
 				})
 				.catch( function(error) {
 					console.log(error.reason);

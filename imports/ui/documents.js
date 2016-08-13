@@ -27,7 +27,8 @@ Template.documents_newDocModal.onRendered( function() {
 
 			Meteor.callPromise('BlogPosts.insert', title)
 				.then( function(id) {
-					FlowRouter.go('/document/new');
+					console.log("submitHandler on newDocModal " + id);
+					FlowRouter.go('/documents/:_id', {_id: id});
 				})
 				.catch( function(error) {
 					console.log(error.reason);

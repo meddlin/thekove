@@ -31,11 +31,12 @@ FlowRouter.route('/documents', {
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
 });
-/*FlowRouter.route('/documents/:_id', {
+FlowRouter.route('/documents/:_id', {
 	action: function(params) {
+		console.log("ROUTE --> /documents/:_id", params._id);
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
-});*/
+});
 
 FlowRouter.route('/document/new', {
 	action: function(params) {

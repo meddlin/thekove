@@ -36,6 +36,12 @@ Template.editor.events({
 					console.log(error.reason);
 				});
 		}*/
+	},
+
+	'click .save-button'(event, template){
+		let body = template.editor.getValue();
+
+		Meteor.call('BlogPosts.update', 'BeqrYwgLarS4CadEC', body);
 	}
 });
 

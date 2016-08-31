@@ -53,5 +53,12 @@ Meteor.methods({
 		});
 
 		return id;
+	},
+
+	'BlogPosts.update'(id, updatedBody) {
+		check(id, String);
+		check(updatedBody, String);
+
+		BlogPosts.update(id, { $set: {body: updatedBody} });
 	}
 });

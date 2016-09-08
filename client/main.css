@@ -3,6 +3,16 @@ body {
 	overflow-x: hidden;
 }
 
+.landing-area {
+
+}
+
+.landing-post {
+	background: white;
+}
+
+
+
 /* navbar styles */
 .navbar.navbar-default {
 	background-color: #283447;

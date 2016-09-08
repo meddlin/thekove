@@ -5,7 +5,7 @@
 	<h4 class="page-header">Documents</h4>
 	<a href="#" class="btn btn-success add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
 	<div class="list-group documents-list">
-		{{#each documents}}
+		{{#each docs}}
 			<a class="list-group-item" href="{{pathFor '/document/new'}}">{{title}}</a>
 		{{else}}
 			<p class="alert alert-warning">No documents yet, friend.</p>

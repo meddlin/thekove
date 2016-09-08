@@ -4,6 +4,12 @@ import { Template } from 'meteor/templating';
 import { BlogPosts } from '../api/blog-posts.js';
 import './documents.html';
 
+Template.documents.helpers({
+	docs() {
+		return BlogPosts.find();
+	}
+});
+
 Template.documents_newDocModal.events({
 	'submit form'(e) {
 		e.preventDefault();

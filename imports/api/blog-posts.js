@@ -37,6 +37,10 @@ if (Meteor.isServer) {
 		return BlogPosts.find({_id: id});
 	});
 
+	Meteor.publish('BlogPosts_all', function() {
+		return BlogPosts.find();
+	});
+
 	Meteor.publish('BlogPosts_latest', function() {
 		return BlogPosts.find({}, {sort: {$natural: 1}, limit: 10});
 	});

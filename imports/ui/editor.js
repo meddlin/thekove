@@ -7,6 +7,9 @@ import './editor.html';
 
 
 Template.editor.helpers({
+	doc() {
+		return BlogPosts.findOne();
+	}
 });
 
 Template.editor.events({

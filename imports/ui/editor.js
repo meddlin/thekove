@@ -5,7 +5,6 @@ import { BlogPosts } from '../api/blog-posts.js';
 import './editor.html';
 
 
-
 Template.editor.helpers({
 	doc() {
 		return BlogPosts.findOne();
@@ -42,9 +41,10 @@ Template.editor.events({
 	},
 
 	'click .save-button'(event, template){
+		let post = BlogPosts.findOne();
 		let body = template.editor.getValue();
 
-		Meteor.call('BlogPosts.update', 'BeqrYwgLarS4CadEC', body);
+		Meteor.call('BlogPosts.update', post._id, body);
 	}
 });
 

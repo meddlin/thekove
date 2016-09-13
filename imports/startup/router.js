@@ -25,6 +25,9 @@ FlowRouter.route('/about', {
 });
 
 FlowRouter.route('/blog', {
+	subscriptions: function(params) {
+		this.register('all_documents', Meteor.subscribe('BlogPosts_all'));
+	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'blog'});
 	}

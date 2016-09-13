@@ -3,7 +3,9 @@
 		{{#each docs}}
 			<div class="landing-post">
 				<h1><a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a></h1>
-				<p>{{body}}</p>
+{{#markdown}}
+{{body}}
+{{/markdown}}
 			</div>
 		{{/each}}
 	</div>

@@ -6,6 +6,7 @@ import '../ui/about.js';
 import '../ui/blog.js';
 import '../ui/documents.js';
 import '../ui/editor.js';
+import '../ui/post.js';
 import '../ui/admin.js';
 
 FlowRouter.route('/', {
@@ -26,6 +27,14 @@ FlowRouter.route('/about', {
 FlowRouter.route('/blog', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'blog'});
+	}
+});
+FlowRouter.route('/blog/:_id', {
+	subscriptions: function(params) {
+		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
+	},
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'post'});
 	}
 });
 

@@ -11,6 +11,19 @@ body {
 	background: white;
 }
 
+/* blog post styles */
+.blog {
+	border-left: 1px solid black;
+	padding-left: 3em;
+}
+
+.blog-post > h1 {
+	cursor: pointer;
+	font-size: 1.4em;
+	color: #2F88D3;
+}
+/* END : blog post styles */
+
 
 
 /* navbar styles */
@@ -75,17 +88,3 @@ body {
 	font-family: Josefin Sans;
 }
 /* END : about styles*/
-
-
-/* blog post styles */
-.post__title-link {
-	cursor: pointer;
-	font-size: 1.4em;
-	color: #2F88D3;
-}
-
-.post__panel {
-	border-radius: 0;
-	/*box-shadow: 0 5px 5px rgba(10, 10, 10, 0.12);*/
-}
-/* END : blog post styles */

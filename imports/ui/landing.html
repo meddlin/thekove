@@ -1,7 +1,7 @@
 <template name="landing">
-	<div class="landing-area">
+	<div class="blog">
 		{{#each docs}}
-			<div class="landing-post">
+			<div class="blog-post">
 				<h1><a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a></h1>
 {{#markdown}}
 {{body}}

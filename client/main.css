@@ -3,14 +3,6 @@ body {
 	overflow-x: hidden;
 }
 
-.landing-area {
-
-}
-
-.landing-post {
-	background: white;
-}
-
 /* blog post styles */
 .blog {
 	border-left: 1px solid black;

@@ -1,0 +1,12 @@
+<template name="landing">
+	<div class="blog">
+		{{#each docs}}
+			<div class="blog-post">
+				<h1><a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a></h1>
+{{#markdown}}
+{{body}}
+{{/markdown}}
+			</div>
+		{{/each}}
+	</div>
+</template>

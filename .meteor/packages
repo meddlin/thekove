@@ -33,3 +33,6 @@ themeteorchef:commonmark
 arillo:flow-router-helpers
 themeteorchef:jquery-validation
 shell-server
+accounts-ui
+npm-bcrypt
+accounts-password

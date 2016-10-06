@@ -1,5 +1,6 @@
 import '../ui/layouts/main-layout.js';
 import '../ui/layouts/portfolio-layout.js';
+import '../ui/layouts/plain-layout.js';
 
 import '../ui/landing.js';
 import '../ui/about.js';
@@ -7,7 +8,7 @@ import '../ui/blog.js';
 import '../ui/documents.js';
 import '../ui/editor.js';
 import '../ui/post.js';
-import '../ui/admin.js';
+import '../ui/admin/admin.js';
 
 FlowRouter.route('/', {
 	subscriptions: function() {
@@ -54,7 +55,6 @@ FlowRouter.route('/documents/:_id', {
 		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
 	},
 	action: function(params) {
-		console.log("ROUTE --> /documents/:_id", params._id);
 		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
 });
@@ -67,6 +67,6 @@ FlowRouter.route('/documents/:_id', {
 
 FlowRouter.route('/admin', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'admin'});
+		BlazeLayout.render('plainLayout', {content: 'admin'});
 	}
 })

@@ -15,7 +15,9 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/blog" class="nav-link">Blog</a></li>
 					<li><a href="/about" class="nav-link">About</a></li>
+					{{#if currentUser}}
 					<li><a href="/documents" class="nav-link">Documents</a></li>
+					{{/if}}
 				</ul>
 			</div>
 		</div>

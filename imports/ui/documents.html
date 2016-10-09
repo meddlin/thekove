@@ -1,5 +1,5 @@
 <template name="documents">
-
+{{#if auth}}
 	{{> documents_newDocModal}}
 
 	<h4 class="page-header">Documents</h4>
@@ -11,6 +11,7 @@
 			<p class="alert alert-warning">No documents yet, friend.</p>
 		{{/each}}
 	</div>
+{{/if}}
 </template>
 
 <template name="documents_newDocModal">

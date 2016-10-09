@@ -42,6 +42,7 @@ FlowRouter.route('/blog/:_id', {
 	}
 });
 
+
 FlowRouter.route('/documents', {
 	subscriptions: function(params) {
 		this.register('all_documents', Meteor.subscribe('BlogPosts_all'));

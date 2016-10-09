@@ -7,8 +7,22 @@ import './documents.html';
 Template.documents.helpers({
 	docs() {
 		return BlogPosts.find();
+	},
+
+	auth() {
+		let user = Meteor.user();
+		if (!user) {
+			FlowRouter.go('/');
+			return false;
+		}
 	}
 });
+
+Template.documents.onCreated( function() {
+	console.log('documents template onCreated()');
+
+});
+
 
 Template.documents_newDocModal.events({
 	'submit form'(e) {

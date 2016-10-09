@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
+import '../imports/startup/accounts-config.js';
 import '../imports/api/utility.js';
 
 import '../imports/api/tasks.js';

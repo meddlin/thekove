@@ -8,6 +8,15 @@ import './editor.html';
 Template.editor.helpers({
 	doc() {
 		return BlogPosts.findOne();
+	},
+
+	auth() {
+		let user = Meteor.user();
+		if (!user) {
+			FlowRouter.go('/');
+			return false;
+		}
+		return true;
 	}
 });
 

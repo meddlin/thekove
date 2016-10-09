@@ -1,4 +1,5 @@
 <template name="editor">
+{{#if auth}}
 	<div class="row">
 		<div class="col-xs-12">
 			<label>Document Title</label>
@@ -18,4 +19,5 @@
 	<div class="preview-wrap">
 		<div id="preview"></div>
 	</div>
+{{/if}}
 </template>

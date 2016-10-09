@@ -15,12 +15,8 @@ Template.documents.helpers({
 			FlowRouter.go('/');
 			return false;
 		}
+		return true;
 	}
-});
-
-Template.documents.onCreated( function() {
-	console.log('documents template onCreated()');
-
 });
 
 

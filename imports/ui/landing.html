@@ -2,7 +2,10 @@
 	<div class="blog">
 		{{#each docs}}
 			<div class="blog-post">
-				<h1><a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a></h1>
+				<h1>
+					<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
+				</h1>
+				<p>Updated: {{updatedAt}}</p>
 {{#markdown}}
 {{body}}
 {{/markdown}}

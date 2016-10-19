@@ -52,8 +52,9 @@ Template.editor.events({
 	'click .save-button'(event, template){
 		let post = BlogPosts.findOne();
 		let body = template.editor.getValue();
+		let mode = $('.doc-mode').val();
 
-		Meteor.call('BlogPosts.update', post._id, body);
+		Meteor.call('BlogPosts.update', post._id, body, mode);
 	}
 });
 

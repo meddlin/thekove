@@ -19,6 +19,18 @@ Template.documents.helpers({
 	}
 });
 
+Template.documents.events({
+	'click .docs-list-btn__draft'() {
+		if (!this.mode) this.mode = "";
+		Meteor.call('BlogPosts.toggleMode', this._id, this.mode);
+	},
+
+	'click .docs-list-btn__public'() {
+		if (!this.mode) this.mode = "";
+		Meteor.call('BlogPosts.toggleMode', this._id, this.mode);
+	}
+});
+
 
 Template.documents_newDocModal.events({
 	'submit form'(e) {

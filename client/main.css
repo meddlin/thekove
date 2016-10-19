@@ -80,3 +80,14 @@ body {
 	font-family: Josefin Sans;
 }
 /* END : about styles*/
+
+.docs-list > .docs-list__doc {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-between;
+}
+
+.docs-list-btn__selected {
+	background: springgreen;
+}

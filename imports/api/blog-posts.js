@@ -71,5 +71,17 @@ Meteor.methods({
 					mode: updatedMode
 				} 
 			});
+	},
+
+	'BlogPosts.toggleMode'(id, updatedMode) {
+		check(id, String);
+		check(updatedMode, String);
+
+		let toggled = updatedMode === 'draft' ? 'public' : 'draft';
+		BlogPosts.update(id, 
+			{ $set:
+				{mode: toggled}
+			});
 	}
+
 });

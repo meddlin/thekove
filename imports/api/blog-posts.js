@@ -42,7 +42,7 @@ if (Meteor.isServer) {
 	});
 
 	Meteor.publish('BlogPosts_latest', function() {
-		return BlogPosts.find({}, {sort: {$natural: 1}, limit: 10});
+		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {$natural: 1}, limit: 10});
 	});
 }
 
@@ -59,10 +59,17 @@ Meteor.methods({
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedBody) {
+	'BlogPosts.update'(id, updatedBody, updatedMode) {
 		check(id, String);
 		check(updatedBody, String);
+		check(updatedMode, String);
 
-		BlogPosts.update(id, { $set: {body: updatedBody} });
+		BlogPosts.update(id, 
+			{ $set: 
+				{
+					body: updatedBody,
+					mode: updatedMode
+				} 
+			});
 	}
 });

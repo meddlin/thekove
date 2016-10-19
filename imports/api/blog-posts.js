@@ -38,11 +38,11 @@ if (Meteor.isServer) {
 	});
 
 	Meteor.publish('BlogPosts_allPublic', function() {
-		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {$natural: 1}});
+		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {updatedAt: -1}});
 	});
 
 	Meteor.publish('BlogPosts_latest', function() {
-		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {$natural: 1}, limit: 10});
+		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {updatedAt: -1}, limit: 10});
 	});
 }
 

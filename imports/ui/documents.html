@@ -11,6 +11,7 @@
         <div class="btn-group btn-group-sm">
           <button type="button" class="btn btn-default docs-list-btn__draft {{#if $eq this.mode 'draft'}}docs-list-btn__selected{{/if}}">Draft</button>
           <button type="button" class="btn btn-default docs-list-btn__public {{#if $eq this.mode 'public'}}docs-list-btn__selected{{/if}}">Public</button>
+          <button type="button" class="btn btn-danger docs-list-btn__delete">DELETE</button>
         </div>
       </ul>
 		{{else}}

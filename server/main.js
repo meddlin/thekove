@@ -14,8 +14,8 @@ Meteor.startup(() => {
   	let defaultUserId = Accounts.createUser({
   		/*email: "admin@admin.com",
   		password: "password"*/
-  		email: Meteor.settings.defaultUserEmail,
-  		password: Meteor.settings.defaultUserPassword
+  		email: process.env.DEFAULT_USER_EMAIL
+  		password: process.env.DEFAULT_USER_PASSWORD
   	});
   	return Roles.addUsersToRoles(defaultUserId, 'admin');
   }

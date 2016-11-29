@@ -51,14 +51,29 @@ FlowRouter.route('/documents', {
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
 });
-FlowRouter.route('/documents/:_id', {
+
+
+
+/*FlowRouter.route('/documents/:_id', {
 	subscriptions: function(params) {
 		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
 	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
+});*/
+FlowRouter.route('/documents/:_id', {
+	/*subscriptions: function(params) {
+		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
+	},*/
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'editor'});
+	}
 });
+
+
+
+
 
 /*FlowRouter.route('/editor', {
 	action: function(params) {

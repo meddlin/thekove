@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import { BlogPosts } from '../api/blog-posts.js';
 import './editor.html';
@@ -7,7 +8,11 @@ import './editor.html';
 
 Template.editor.helpers({
 	doc() {
-		return BlogPosts.findOne();
+		var singleDoc = BlogPosts.findOne();
+		if (singleDoc && Template.instance().editorTextValue.get() == "") {
+			Template.instance().editorTextValue.set(singleDoc.body);
+		}
+		return singleDoc;
 	},
 
 	auth() {
@@ -17,23 +22,32 @@ Template.editor.helpers({
 			return false;
 		}
 		return true;
+	},
+
+	editorOptions() {
+		return {
+			lineNumbers: true,
+			fixedGutter: false,
+			mode: "markdown",
+			lineWrapping: true,
+			cursorHeight: 0.85
+		}
+	},
+
+	editorCode() {
+		return Template.instance().editorTextValue.get();
 	}
 });
 
 Template.editor.events({
-	/*'click .btn-success'() {
-		let title = $('.doc-title').val();
-		let tags = $('.doc-tags').val().split(',');
-
-		Meteor.call('BlogPosts.insert', title, tags);
-	},*/
 
 	'keyup .CodeMirror'(event, template) {
-		let text = template.editor.getValue();
+		let text = template.find('#editor').value
+		Template.instance().editorTextValue.set(text);
 
 		Meteor.callPromise('convertMarkdown', text)
 			.then( function(html) {
-				console.log(html);
+				/*console.log(html);*/
 				$('#preview').html(html);
 			});
 
@@ -51,7 +65,7 @@ Template.editor.events({
 
 	'click .save-button'(event, template){
 		let post = BlogPosts.findOne();
-		let body = template.editor.getValue();
+		let body = template.find('#editor').value;
 		let mode = $('.doc-mode').val();
 
 		Meteor.call('BlogPosts.update', post._id, body, mode);
@@ -60,14 +74,19 @@ Template.editor.events({
 
 Template.editor.onCreated( function() {
 	// subscription to single document goes here
+
+	var self = this;
+	self.autorun(function() {
+		var postId = FlowRouter.getParam("_id");
+		self.sub = self.subscribe('BlogPosts_single', postId, function() {
+			console.log("check if subscription is ready");
+		});
+	});
+
+	self.editorTextValue = new ReactiveVar("");
+	
 });
 
 Template.editor.onRendered( function() {
-	this.editor = CodeMirror.fromTextArea( this.find("#editor"), {
-		lineNumbers: true,
-		fixedGutter: false,
-		mode: "markdown",
-		lineWrapping: true,
-		cursorHeight: 0.85
-	});
+
 });

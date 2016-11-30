@@ -1,15 +1,31 @@
 <template name="landing">
-	<div class="blog">
-		{{#each docs}}
-			<div class="blog-post">
-				<h1>
-					<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
-				</h1>
-				<p>Updated: {{updatedAt}}</p>
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="blog">
+				{{#each docs}}
+					<div class="blog-post">
+						<h1>
+							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
+						</h1>
+						<p>Updated: {{updatedAt}}</p>
 {{#markdown}}
 {{body}}
 {{/markdown}}
+					</div>
+				{{/each}}
 			</div>
-		{{/each}}
+		</div>
+		<div class="col-sm-2">
+			<div class="gutter-blurb">
+			blurb
+			</div>
+			<div class="site-toc">
+				<ul>
+					<li>Projects</li>
+					<li>Cooking</li>
+					<li>YouTube</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </template>

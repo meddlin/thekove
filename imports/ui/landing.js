@@ -7,5 +7,9 @@ import './landing.html';
 Template.landing.helpers({
 	docs() {
 		return BlogPosts.find();
+	},
+
+	trimmedBody(text) {
+		return text.slice(0, 250);
 	}
 });

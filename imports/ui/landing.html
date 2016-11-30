@@ -7,7 +7,9 @@
 						<h1>
 							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
 						</h1>
-						<p>Updated: {{updatedAt}}</p>
+						{{#if updatedAt}}
+						<p><b>Updated: {{updatedAt}}</b></p>
+						{{/if}}
 {{#markdown}}
 {{body}}
 {{/markdown}}

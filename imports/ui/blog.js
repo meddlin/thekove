@@ -7,7 +7,15 @@ import './blog.html';
 Template.blog.helpers({
 	docs() {
 		return BlogPosts.find();
-	}/*,
+	},
+	formattedCreateDate(date) {
+		if (date) {
+			return moment(date).format("MMMM Do YYYY");
+		} else {
+			return "";
+		}
+	}
+	/*,
 	body() {
 		return "##Testing **123**";
 	}*/

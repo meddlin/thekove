@@ -4,12 +4,9 @@
 			<div class="blog">
 				{{#each docs}}
 					<div class="blog-post">
-						<h1>
+						<div class="blog-post-title">
 							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
-						</h1>
-						{{#if updatedAt}}
-						<p><b>Updated: {{updatedAt}}</b></p>
-						{{/if}}
+						</div>
 {{#markdown}}
 {{trimmedBody body}}
 {{/markdown}}

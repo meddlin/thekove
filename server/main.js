@@ -10,6 +10,8 @@ import '../imports/api/blog-posts.js';
 
 Meteor.startup(() => {
   // code to run on server at startup
+  prerenderio.set('prerenderToken', process.env.PRERENDER_TOKEN);
+
   if (Meteor.users.find().count() == 0) {
   	let defaultUserId = Accounts.createUser({
   		/*email: "admin@admin.com",

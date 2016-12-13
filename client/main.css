@@ -88,6 +88,28 @@ body {
 }
 /* END : about styles*/
 
+.gutter-blurb {
+	display: flex;
+    flex-direction: row;
+    align-content: stretch;
+
+    margin-left: 6.5em;
+}
+.gutter-blurb > img {
+	border-radius: 50%;
+	width: 140px;
+	height: 140px; 
+	/* width and height can be anything, as long as they're equal */
+	margin-left: -5.5em;
+}
+.gutter-blurb > .blurb {
+	min-width: 25em;
+    background: darkgrey;
+    padding-right: 5em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
 .docs-list > .docs-list__doc {
 	display: flex;
 	flex-direction: row;

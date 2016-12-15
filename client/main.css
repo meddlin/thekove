@@ -114,6 +114,7 @@ body {
 	background: springgreen;
 }
 
+
 footer {
 	background: darkgrey;
     padding: 2em 0 2em 0;
@@ -124,30 +125,24 @@ footer {
     justify-content: center;
 }
 
-
-footer > #center-footer {
-	flex-grow: 5;
-
-	display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-footer > #center-footer > a{
-	margin: 0.5em;
-}
-footer > #right-footer {
-	display: flex;
-    flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
-}
-footer > #right-footer > #blurb {
-	padding-right: 0.5em;
-}
 footer > #right-footer > img {
 	border-radius: 50%;
 	width: 100px;
 	height: 100px; 
 	/* width and height can be anything, as long as they're equal */
+}
+footer > #center-footer {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+footer > #center-footer > a {
+	margin: 0.5em;
+}
+footer > #right-footer {
+	display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

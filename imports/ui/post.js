@@ -11,3 +11,12 @@ Template.post.helpers({
 });
 
 Template.post.events({});
+
+Template.post.onCreated(() => {
+	let post = BlogPosts.findOne();
+	DocHead.setTitle('TheKove -- ' + post.title);
+});
+
+Template.post.onDestroyed(() => {
+	DocHead.setTitle('');
+});

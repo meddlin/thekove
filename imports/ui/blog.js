@@ -25,3 +25,7 @@ Template.blog.helpers({
 		let markup = converter.makeHtml('Testing **123**');
 		return markup;*/
 });
+
+Template.blog.onDestroyed(() => {
+	DocHead.setTitle('');
+});

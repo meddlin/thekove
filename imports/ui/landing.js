@@ -13,3 +13,7 @@ Template.landing.helpers({
 		return text.slice(0, 250);
 	}
 });
+
+Template.landing.onDestroyed(() => {
+	DocHead.setTitle('');
+});

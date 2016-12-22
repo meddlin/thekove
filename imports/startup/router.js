@@ -16,12 +16,14 @@ FlowRouter.route('/', {
 	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
+		DocHead.setTitle('TheKove -- Home');
 	}
 });
 
 FlowRouter.route('/about', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'about'});
+		DocHead.setTitle('TheKove -- About');
 	}
 });
 
@@ -31,6 +33,7 @@ FlowRouter.route('/blog', {
 	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'blog'});
+		DocHead.setTitle('TheKove -- Blog');
 	}
 });
 FlowRouter.route('/blog/:_id', {

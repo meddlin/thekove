@@ -11,9 +11,6 @@ import '../ui/post.js';
 import '../ui/admin/admin.js';
 
 FlowRouter.route('/', {
-	subscriptions: function() {
-		this.register('latest_documents', Meteor.subscribe('BlogPosts_latest'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
 		DocHead.setTitle('TheKove -- Home');

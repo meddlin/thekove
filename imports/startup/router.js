@@ -25,18 +25,12 @@ FlowRouter.route('/about', {
 });
 
 FlowRouter.route('/blog', {
-	subscriptions: function(params) {
-		this.register('all_documents', Meteor.subscribe('BlogPosts_allPublic'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'blog'});
 		DocHead.setTitle('TheKove -- Blog');
 	}
 });
 FlowRouter.route('/blog/:_id', {
-	subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
 	}
@@ -44,42 +38,17 @@ FlowRouter.route('/blog/:_id', {
 
 
 FlowRouter.route('/documents', {
-	subscriptions: function(params) {
-		this.register('all_documents', Meteor.subscribe('BlogPosts_all'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
 });
 
 
-
-/*FlowRouter.route('/documents/:_id', {
-	subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'editor'});
-	}
-});*/
 FlowRouter.route('/documents/:_id', {
-	/*subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},*/
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
 });
-
-
-
-
-
-/*FlowRouter.route('/editor', {
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'editor'});
-	}
-});*/
 
 FlowRouter.route('/admin', {
 	action: function(params) {

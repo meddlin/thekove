@@ -16,3 +16,30 @@ BlogTags.schema = new SimpleSchema({
 		type: Date
 	}
 });
+
+if (Meteor.isServer) {
+	Meteor.publish('BlogTags_all', function() {
+		return BlogTags.find();
+	});
+}
+
+Meteor.methods({
+	'BlogTags.upsert'(tag_text) {
+		check(tag_text, String);
+
+		let res = BlogTags.upsert({
+				name: tag_text
+			}, 
+			{ $set: { 
+					name: tag_text,
+					createdAt: new Date() 
+			}
+		});
+
+		return res;
+	},
+
+	'BlogTags.FetchList'() {
+		return BlogTags.find().fetch();
+	}
+});

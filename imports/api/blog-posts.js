@@ -8,8 +8,8 @@ BlogPosts.schema = new SimpleSchema({
 	title: {
 		type: String
 	},
-	tags: {
-		type: [String]
+	tag: {
+		type: String
 	},
 	slug: {
 		type: String
@@ -63,16 +63,18 @@ Meteor.methods({
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedBody, updatedMode) {
+	'BlogPosts.update'(id, updatedBody, updatedMode, updatedTag) {
 		check(id, String);
 		check(updatedBody, String);
 		check(updatedMode, String);
+		check(updatedTag, String);
 
 		BlogPosts.update(id, 
 			{ $set: 
 				{
 					body: updatedBody,
-					mode: updatedMode
+					mode: updatedMode,
+					tag: updatedTag
 				} 
 			});
 	},

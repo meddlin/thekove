@@ -3,8 +3,8 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import { BlogPosts } from '../api/blog-posts.js';
+import { BlogTags } from '../api/blog-tags.js';
 import './editor.html';
-
 
 Template.editor.helpers({
 	doc() {
@@ -36,6 +36,21 @@ Template.editor.helpers({
 
 	editorCode() {
 		return Template.instance().editorTextValue.get();
+	},
+
+	tagOptions() {
+		let tags = BlogTags.find().fetch();
+		let tagOptions = _.map(tags, (t) => {
+			return { option: t.name };
+		});
+		return tagOptions;
+	},
+
+	currentTag() {
+		let post = BlogPosts.findOne();
+		if (post && post.tag) {
+			return post.tag;
+		}
 	}
 });
 
@@ -47,7 +62,6 @@ Template.editor.events({
 
 		Meteor.callPromise('convertMarkdown', text)
 			.then( function(html) {
-				/*console.log(html);*/
 				$('#preview').html(html);
 			});
 
@@ -67,26 +81,50 @@ Template.editor.events({
 		let post = BlogPosts.findOne();
 		let body = template.find('#editor').value;
 		let mode = $('.doc-mode').val();
+		let tag = $('#tag-select').val();
 
-		Meteor.call('BlogPosts.update', post._id, body, mode);
+		Meteor.call('BlogPosts.update', post._id, body, mode, tag);
+	},
+
+	'click #tag-save-btn'() {
+		let text = $('#new-tag-input').val();
+
+		if (text !== '' || text !== null) {
+			Meteor.call('BlogTags.upsert', text, (err, res) => {
+				if (res.numberAffected && res.numberAffected > 0){
+					$('#new-tag-input').val('');
+				} else if (err) {
+					console.log('err: ' + err);
+				}
+			});
+		}
+
 	}
 });
 
 Template.editor.onCreated( function() {
-	// subscription to single document goes here
-
 	var self = this;
-	self.autorun(function() {
-		var postId = FlowRouter.getParam("_id");
-		self.sub = self.subscribe('BlogPosts_single', postId, function() {
-			console.log("check if subscription is ready");
-		});
-	});
+
+	self.BlogPostsSub = new ReactiveVar(null);
+	self.BlogTagsSub = new ReactiveVar(null);
 
 	self.editorTextValue = new ReactiveVar("");
-	
+
+	self.autorun(function() {
+		var postId = FlowRouter.getParam("_id");
+		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_single', postId) );
+		Template.instance().BlogTagsSub.set( Meteor.subscribe('BlogTags_all') );
+	});	
 });
 
 Template.editor.onRendered( function() {
 
+});
+
+Template.editor.onDestroyed(() => {
+	var subToStop = Template.instance().BlogPostsSub.get();
+	subToStop.stop();
+
+	subToStop = Template.instance().BlogTagsSub.get();
+	subToStop.stop();
 });

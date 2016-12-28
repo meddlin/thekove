@@ -5,8 +5,17 @@
 			<label>Document Title</label>
 			<input type="text" class="doc-title" value="{{doc.title}}" />
 			<br />
+			<label>Current tag: {{currentTag}}</label>
+			<br />
 			<label>Tags</label>
-			<input type="text" class="doc-tags" value="{{doc.tags}}" />
+			<select class="form-control"  id="tag-select">
+				<option disabled="disabled">Please Select</option>
+				{{#each tagOptions}}
+					<option value="{{this.option}}" {{isSelected this.option}}>
+						{{this.option}}
+					</option>
+				{{/each}}
+			</select>
 			<br />
 			<label>Mode</label>
 			<input type="text" class="doc-mode" value="{{doc.mode}}" />
@@ -28,7 +37,10 @@
 				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 			</div>
 			<div class="modal-body">
-			...creating a new blog tag goes here...
+			
+				<input id="new-tag-input" type="text" />
+				<div id="tag-save-btn" class="btn btn-default">Save</div>
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

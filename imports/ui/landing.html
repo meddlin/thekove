@@ -8,7 +8,8 @@
 							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
 						</div>
 {{#markdown}}
-{{trimmedBody body}}
+<!-- {{trimmedBody body}} -->
+{{this.description}}
 {{/markdown}}
 					</div>
 				{{/each}}

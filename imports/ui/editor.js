@@ -82,8 +82,9 @@ Template.editor.events({
 		let body = template.find('#editor').value;
 		let mode = $('.doc-mode').val();
 		let tag = $('#tag-select').val();
+		let desc = $('#post-description').val();
 
-		Meteor.call('BlogPosts.update', post._id, body, mode, tag);
+		Meteor.call('BlogPosts.update', post._id, body, mode, tag, desc);
 	},
 
 	'click #tag-save-btn'() {

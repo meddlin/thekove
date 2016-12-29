@@ -30,6 +30,14 @@
 		</div>
 	</div>
 
+<div class="editor-wrap">
+	<textarea id="myTextarea"></textarea>
+	
+</div>
+<div class="preview-wrap">
+	<div id="preview"></div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
@@ -52,11 +60,5 @@
 	</div>
 </div>
 
-	<div class="editor-wrap">
-		{{> CodeMirror id="editor" name="codeMirrorEditor" options=editorOptions code=editorCode}}
-	</div>
-	<div class="preview-wrap">
-		<div id="preview"></div>
-	</div>
 {{/if}}
 </template>

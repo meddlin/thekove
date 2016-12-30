@@ -114,6 +114,12 @@ body {
 	background: springgreen;
 }
 
+.post-image-center {
+	height: 50%;
+    width: 50%;
+    display: inherit;
+}
+
 
 footer {
 	background: darkgrey;

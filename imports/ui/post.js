@@ -15,8 +15,6 @@ Template.post.helpers({
 	}
 });
 
-Template.post.events({});
-
 Template.post.onCreated(function() {
 	this.BlogPostsSub = new ReactiveVar(null);
 	var postId = FlowRouter.getParam("_id");

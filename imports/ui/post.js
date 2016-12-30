@@ -6,7 +6,12 @@ import './post.html';
 
 Template.post.helpers({
 	doc() {
-		return BlogPosts.findOne();
+		var sub = Template.instance().BlogPostsSub.get();
+		if (sub.ready()) {
+			let post = BlogPosts.findOne();
+			DocHead.setTitle('TheKove -- ' + post.title);
+			return post;
+		}
 	}
 });
 
@@ -17,11 +22,14 @@ Template.post.onCreated(function() {
 	var postId = FlowRouter.getParam("_id");
 
 	this.autorun(() => {
-		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_single', postId) );
-	});
+		Template.instance().BlogPostsSub.set(
+			Meteor.subscribe('BlogPosts_single', postId, function() {
 
-	let post = BlogPosts.findOne();
-	DocHead.setTitle('TheKove -- ' + post.title);
+			}, function() {
+				console.log('on ready');
+			})
+		);
+	});
 });
 
 Template.post.onDestroyed(function() {

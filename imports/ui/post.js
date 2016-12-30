@@ -22,13 +22,7 @@ Template.post.onCreated(function() {
 	var postId = FlowRouter.getParam("_id");
 
 	this.autorun(() => {
-		Template.instance().BlogPostsSub.set(
-			Meteor.subscribe('BlogPosts_single', postId, function() {
-
-			}, function() {
-				console.log('on ready');
-			})
-		);
+		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_single', postId) );
 	});
 });
 

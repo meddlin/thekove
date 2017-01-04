@@ -4,6 +4,7 @@ sitemaps.add('/sitemap.xml', function() {
 
 	var out = [];
 	out.push({ page: '/about' });
+	out.push({ page: '/privacy' });
 	var pages = BlogPosts.find({mode: "public"}).fetch();
 	_.each(pages, function(p) {
 		out.push({

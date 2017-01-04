@@ -4,6 +4,7 @@ import '../ui/layouts/plain-layout.js';
 
 import '../ui/landing.js';
 import '../ui/about.js';
+import '../ui/privacy.js';
 import '../ui/blog.js';
 import '../ui/documents.js';
 import '../ui/editor.js';
@@ -22,6 +23,12 @@ FlowRouter.route('/', {
 FlowRouter.route('/about', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'about'});
+	}
+});
+
+FlowRouter.route('/privacy', {
+	action: function(params) {
+		BlazeLayout.render('portfolioLayout', {content: 'privacy'});
 	}
 });
 

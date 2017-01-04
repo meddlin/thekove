@@ -8,8 +8,8 @@ BlogPosts.schema = new SimpleSchema({
 	title: {
 		type: String
 	},
-	tags: {
-		type: [String]
+	tag: {
+		type: String
 	},
 	slug: {
 		type: String
@@ -46,7 +46,7 @@ if (Meteor.isServer) {
 	});
 
 	Meteor.publish('BlogPosts_latest', function() {
-		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {createdAt: -1}, limit: 10});
+		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {createdAt: -1}, limit: 20});
 	});
 }
 
@@ -63,16 +63,20 @@ Meteor.methods({
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedBody, updatedMode) {
+	'BlogPosts.update'(id, updatedBody, updatedMode, updatedTag, updatedDesc) {
 		check(id, String);
 		check(updatedBody, String);
 		check(updatedMode, String);
+		check(updatedTag, String);
+		check(updatedDesc, String);
 
 		BlogPosts.update(id, 
 			{ $set: 
 				{
 					body: updatedBody,
-					mode: updatedMode
+					mode: updatedMode,
+					tag: updatedTag,
+					description: updatedDesc
 				} 
 			});
 	},

@@ -8,21 +8,23 @@
 							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
 						</div>
 {{#markdown}}
-{{trimmedBody body}}
+<!-- {{trimmedBody body}} -->
+{{this.description}}
 {{/markdown}}
 					</div>
 				{{/each}}
 			</div>
 		</div>
 		<div class="col-sm-2">
-			<div class="gutter-blurb">
-			
-			</div>
-			<div class="site-toc">
+			<!-- <div class="site-toc">
 				<ul>
-					
+					Sections
+					<li>Project: CPAT</li>
+					<li>Cooking</li>
+					<li>Just fun...</li>
+					<li>Christian</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>

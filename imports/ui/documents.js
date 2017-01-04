@@ -35,6 +35,18 @@ Template.documents.events({
 	}
 });
 
+Template.documents.onCreated(function() {
+	this.BlogPostsSub = new ReactiveVar(null);
+
+	this.autorun(() => {
+		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_all') );
+	});
+});
+
+Template.documents.onDestroyed(function() {
+	var subToStop = Template.instance().BlogPostsSub.get();
+	subToStop.stop();
+});
 
 Template.documents_newDocModal.events({
 	'submit form'(e) {

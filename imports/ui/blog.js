@@ -26,6 +26,16 @@ Template.blog.helpers({
 		return markup;*/
 });
 
-Template.blog.onCreated(() => {
-	DocHead.setTitle("TheKove -- Blog");
+Template.blog.onCreated(function() {
+	this.BlogPostsSub = new ReactiveVar(null);
+
+	this.autorun(() => {
+		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_allPublic') );
+	});
+});
+
+Template.blog.onDestroyed(() => {
+	var subToStop = Template.instance().BlogPostsSub.get();
+	subToStop.stop();
+	DocHead.setTitle('');
 });

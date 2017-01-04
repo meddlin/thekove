@@ -12,17 +12,16 @@ import '../ui/post.js';
 import '../ui/admin/admin.js';
 
 FlowRouter.route('/', {
-	subscriptions: function() {
-		this.register('latest_documents', Meteor.subscribe('BlogPosts_latest'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
+		DocHead.setTitle('TheKove -- Home');
 	}
 });
 
 FlowRouter.route('/about', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'about'});
+		DocHead.setTitle('TheKove -- About');
 	}
 });
 
@@ -33,17 +32,12 @@ FlowRouter.route('/privacy', {
 });
 
 FlowRouter.route('/blog', {
-	subscriptions: function(params) {
-		this.register('all_documents', Meteor.subscribe('BlogPosts_allPublic'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'blog'});
+		DocHead.setTitle('TheKove -- Blog');
 	}
 });
 FlowRouter.route('/blog/:_id', {
-	subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
 	}
@@ -51,42 +45,17 @@ FlowRouter.route('/blog/:_id', {
 
 
 FlowRouter.route('/documents', {
-	subscriptions: function(params) {
-		this.register('all_documents', Meteor.subscribe('BlogPosts_all'));
-	},
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
 });
 
 
-
-/*FlowRouter.route('/documents/:_id', {
-	subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'editor'});
-	}
-});*/
 FlowRouter.route('/documents/:_id', {
-	/*subscriptions: function(params) {
-		this.register('single_document', Meteor.subscribe('BlogPosts_single', params._id));
-	},*/
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'editor'});
 	}
 });
-
-
-
-
-
-/*FlowRouter.route('/editor', {
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'editor'});
-	}
-});*/
 
 FlowRouter.route('/admin', {
 	action: function(params) {

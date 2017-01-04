@@ -13,3 +13,17 @@ Template.landing.helpers({
 		return text.slice(0, 250);
 	}
 });
+
+Template.landing.onCreated(function() {
+	this.blogLatestSub = new ReactiveVar(null);
+
+	this.autorun(() => {
+		Template.instance().blogLatestSub.set(Meteor.subscribe('BlogPosts_latest'));
+	});
+});
+
+Template.landing.onDestroyed(() => {
+	var subToStop = Template.instance().blogLatestSub.get();
+	subToStop.stop();
+	DocHead.setTitle('');
+});

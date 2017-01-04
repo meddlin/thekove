@@ -3,16 +3,25 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import { BlogPosts } from '../api/blog-posts.js';
+import { BlogTags } from '../api/blog-tags.js';
 import './editor.html';
-
 
 Template.editor.helpers({
 	doc() {
-		var singleDoc = BlogPosts.findOne();
-		if (singleDoc && Template.instance().editorTextValue.get() == "") {
-			Template.instance().editorTextValue.set(singleDoc.body);
+		var sub = Template.instance().BlogPostsSub.get();
+		if (sub.ready()) {
+			var postId = FlowRouter.getParam('_id');
+			/*var singleDoc = BlogPosts.find({_id: postId}).fetch()[0];*/
+			var singleDoc = BlogPosts.findOne();
+
+			var cm = Template.instance().codeMirrorHold.get();
+			if (singleDoc && Template.instance().editorText.get() == "") {
+				Template.instance().editorText.set(singleDoc.body);
+
+				cm.setValue(singleDoc.body);
+			}
+			return singleDoc;
 		}
-		return singleDoc;
 	},
 
 	auth() {
@@ -24,30 +33,30 @@ Template.editor.helpers({
 		return true;
 	},
 
-	editorOptions() {
-		return {
-			lineNumbers: true,
-			fixedGutter: false,
-			mode: "markdown",
-			lineWrapping: true,
-			cursorHeight: 0.85
-		}
+	tagOptions() {
+		let tags = BlogTags.find().fetch();
+		let tagOptions = _.map(tags, (t) => {
+			return { option: t.name };
+		});
+		return tagOptions;
 	},
 
-	editorCode() {
-		return Template.instance().editorTextValue.get();
+	currentTag() {
+		let post = BlogPosts.findOne();
+		if (post && post.tag) {
+			return post.tag;
+		}
 	}
 });
 
 Template.editor.events({
 
 	'keyup .CodeMirror'(event, template) {
-		let text = template.find('#editor').value
-		Template.instance().editorTextValue.set(text);
+		let cm = Template.instance().codeMirrorHold.get();
+		let text = cm.getValue();
 
 		Meteor.callPromise('convertMarkdown', text)
 			.then( function(html) {
-				/*console.log(html);*/
 				$('#preview').html(html);
 			});
 
@@ -64,29 +73,71 @@ Template.editor.events({
 	},
 
 	'click .save-button'(event, template){
-		let post = BlogPosts.findOne();
-		let body = template.find('#editor').value;
-		let mode = $('.doc-mode').val();
+		let cm = Template.instance().codeMirrorHold.get();
 
-		Meteor.call('BlogPosts.update', post._id, body, mode);
+		let post = BlogPosts.findOne();
+		let body = cm.getValue();
+		let mode = $('.doc-mode').val();
+		let tag = $('#tag-select').val();
+		let desc = $('#post-description').val();
+
+		Meteor.call('BlogPosts.update', post._id, body, mode, tag, desc);
+	},
+
+	'click #tag-save-btn'() {
+		let text = $('#new-tag-input').val();
+
+		if (text !== '' || text !== null) {
+			Meteor.call('BlogTags.upsert', text, (err, res) => {
+				if (res.numberAffected && res.numberAffected > 0){
+					$('#new-tag-input').val('');
+				} else if (err) {
+					console.log('err: ' + err);
+				}
+			});
+		}
 	}
 });
 
 Template.editor.onCreated( function() {
-	// subscription to single document goes here
-
 	var self = this;
+
+	self.BlogPostsSub = new ReactiveVar(null);
+	self.BlogTagsSub = new ReactiveVar(null);
+
+	self.codeMirrorHold = new ReactiveVar(null);
+	self.editorText = new ReactiveVar("");
+
 	self.autorun(function() {
 		var postId = FlowRouter.getParam("_id");
-		self.sub = self.subscribe('BlogPosts_single', postId, function() {
-			console.log("check if subscription is ready");
-		});
-	});
+		Template.instance().BlogPostsSub.set( 
+			Meteor.subscribe('BlogPosts_single', postId, function() {
+				
+			}, function() {
+				console.log('onready?');
 
-	self.editorTextValue = new ReactiveVar("");
-	
+			})
+		);
+		Template.instance().BlogTagsSub.set( Meteor.subscribe('BlogTags_all') );
+	});	
 });
 
 Template.editor.onRendered( function() {
+	var editor = CodeMirror.fromTextArea(this.find("#myTextarea"), {
+		lineNumbers: true,
+		fixedGutter: false,
+		mode: "markdown",
+		lineWrapping: true,
+		cursorHeight: 0.85
+	});
 
+	Template.instance().codeMirrorHold.set(editor);
+});
+
+Template.editor.onDestroyed(() => {
+	var subToStop = Template.instance().BlogPostsSub.get();
+	subToStop.stop();
+
+	subToStop = Template.instance().BlogTagsSub.get();
+	subToStop.stop();
 });

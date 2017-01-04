@@ -88,6 +88,21 @@ body {
 }
 /* END : about styles*/
 
+.gutter-blurb {
+	display: flex;
+    flex-direction: row;
+    align-content: stretch;
+
+    margin-left: 6.5em;
+}
+.gutter-blurb > .blurb {
+	min-width: 25em;
+    background: darkgrey;
+    padding-right: 5em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
 .docs-list > .docs-list__doc {
 	display: flex;
 	flex-direction: row;
@@ -97,4 +112,43 @@ body {
 
 .docs-list-btn__selected {
 	background: springgreen;
+}
+
+.post-image-center {
+	height: 50%;
+    width: 50%;
+    display: inherit;
+}
+
+
+footer {
+	background: darkgrey;
+    padding: 2em 0 2em 0;
+    margin-top: 3em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+footer > #right-footer > img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px; 
+	/* width and height can be anything, as long as they're equal */
+}
+footer > #center-footer {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+footer > #center-footer > a {
+	margin: 0.5em;
+}
+footer > #right-footer {
+	display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

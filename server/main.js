@@ -4,6 +4,7 @@ import '../imports/startup/accounts-config.js';
 import '../imports/api/utility.js';
 
 import '../imports/api/blog-posts.js';
+import '../imports/api/blog-tags.js';
 
 
 Meteor.startup(() => {

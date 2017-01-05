@@ -52,6 +52,9 @@ body {
 .about__info-panel {
 	border-radius: 0;
 	box-shadow: 0 3px 10px rgb(136, 136, 136), 0 -3px 10px rgb(136, 136, 136);
+	margin-left: -2em;
+    margin-right: -2em;
+    margin-top: -2em;
 }
 
 .about__row {
@@ -73,6 +76,12 @@ body {
 .about-info {
 	font-family: Josefin Sans;
 	font-size: 1.1em;
+}
+.about-info__projects-header {
+	background: lightgray;
+    padding: 1em;
+    margin: -1em -1em 2em -1em;
+    font-family: 'Lato', sans-serif;
 }
 
 .portfolio__title {

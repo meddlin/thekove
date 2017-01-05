@@ -9,6 +9,14 @@ Template.landing.helpers({
 		return BlogPosts.find();
 	},
 
+	formattedCreateDate(date) {
+		if (date) {
+			return moment(date).format("MMMM Do YYYY");
+		} else {
+			return "";
+		}
+	},
+
 	trimmedBody(text) {
 		return text.slice(0, 250);
 	}

@@ -166,3 +166,7 @@ footer > #right-footer {
     justify-content: center;
     align-items: center;
 }
+
+.CodeMirror {
+	height: 700px;
+}

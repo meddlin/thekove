@@ -1,6 +1,12 @@
 <template name="post">
-	<h1>{{doc.title}}</h1>
+{{#if Template.subscriptionsReady}}
+
+{{#with doc}}
+	<h1>{{this.title}}</h1>
 {{#markdown}}
-{{doc.body}}
+{{this.body}}
 {{/markdown}}
+{{/with}}
+
+{{/if}}
 </template>

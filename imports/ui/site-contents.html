@@ -1,0 +1,54 @@
+<template name="siteContents">
+{{#if auth}}
+	{{#if Template.subscriptionsReady}}
+		<div class="container">
+
+		<div class="row">
+			<div class="col-xs-4">
+			<label>Page: </label><input id="create-page-text" type="text" />
+			</div>
+			<div class="col-xs-8">
+			<label>Title: </label><input id="create-title-text" type="text" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<textarea class="site-contents-blob" id="create-blob-text" ></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">
+				<div class="js-create-btn btn btn-sm btn-primary">Create</div>
+			</div>
+		</div>
+
+		{{#each contents}}
+			<div class="site-content-entry">
+				<div class="row">
+					<div class="col-xs-4">
+					<label>Page: </label><span>{{this.page}}</span>
+					</div>
+					<div class="col-xs-8">
+					<label>Title: </label><span>{{this.title}}</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<textarea class="site-contents-blob" value="{{this.blob}}"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<div class="js-save-btn btn btn-sm btn-success">Save</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="js-delete-btn btn btn-sm btn-danger">DELETE</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+
+		</div>
+	{{/if}}
+{{/if}}
+</template>

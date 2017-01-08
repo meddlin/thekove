@@ -28,6 +28,7 @@ FlowRouter.route('/about', {
 FlowRouter.route('/privacy', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'privacy'});
+		DocHead.setTitle('TheKove -- Privacy');
 	}
 });
 

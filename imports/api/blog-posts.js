@@ -63,8 +63,9 @@ Meteor.methods({
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedBody, updatedMode, updatedTag, updatedDesc) {
+	'BlogPosts.update'(id, updatedTitle, updatedBody, updatedMode, updatedTag, updatedDesc) {
 		check(id, String);
+		check(updatedTitle, String);
 		check(updatedBody, String);
 		check(updatedMode, String);
 		check(updatedTag, String);
@@ -73,6 +74,7 @@ Meteor.methods({
 		BlogPosts.update(id, 
 			{ $set: 
 				{
+					title: updatedTitle,
 					body: updatedBody,
 					mode: updatedMode,
 					tag: updatedTag,

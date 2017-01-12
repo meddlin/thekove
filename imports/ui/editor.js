@@ -76,12 +76,13 @@ Template.editor.events({
 		let cm = Template.instance().codeMirrorHold.get();
 
 		let post = BlogPosts.findOne();
+		let title = $('.doc-title').val();
 		let body = cm.getValue();
 		let mode = $('.doc-mode').val();
 		let tag = $('#tag-select').val();
 		let desc = $('#post-description').val();
 
-		Meteor.call('BlogPosts.update', post._id, body, mode, tag, desc);
+		Meteor.call('BlogPosts.update', post._id, title, body, mode, tag, desc);
 	},
 
 	'click #tag-save-btn'() {

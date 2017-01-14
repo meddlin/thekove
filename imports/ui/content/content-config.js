@@ -40,6 +40,7 @@ export const SiteContents = {
 			twitter: "https://twitter.com/meddlin_dev",
 			reddit: "https://www.reddit.com/user/_meddlin_/",
 			github: "https://github.com/meddlin",
+			pcpart: "https://pcpartpicker.com/user/meddlin/",
 
 			// footer info
 			picLink: "http://i.imgur.com/aCkzHge.jpg",

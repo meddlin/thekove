@@ -1,23 +1,46 @@
 <template name="documents">
 {{#if auth}}
+{{#if Template.subscriptionsReady}}
 	{{> documents_newDocModal}}
 
 	<h4 class="page-header">Documents</h4>
-	<a href="#" class="btn btn-success add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
-	<div class="list-group docs-list">
-		{{#each docs}}
-      <ul class="list-group-item docs-list__doc">
-  			<a href="{{pathFor '/documents/:_id' _id=_id}}">{{title}}</a>
-        <div class="btn-group btn-group-sm">
-          <button type="button" class="btn btn-default docs-list-btn__draft {{#if $eq this.mode 'draft'}}docs-list-btn__selected{{/if}}">Draft</button>
-          <button type="button" class="btn btn-default docs-list-btn__public {{#if $eq this.mode 'public'}}docs-list-btn__selected{{/if}}">Public</button>
-          <button type="button" class="btn btn-danger docs-list-btn__delete">DELETE</button>
-        </div>
-      </ul>
-		{{else}}
-			<p class="alert alert-warning">No documents yet, friend.</p>
-		{{/each}}
-	</div>
+	
+  <div class="row">
+    <div class="col-md-6">
+      <div class="list-group docs-list">
+      {{#each tags}}
+        <ul class="list-group-item docs-list__doc">
+          <a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a>
+          <input type="text" class="input-tag-name" value="{{name}}" />
+          <span>{{slug}}</span>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-default tag-btn__save">Save</button>
+            <button type="button" class="btn btn-danger tag-btn__delete">DELETE</button>
+          </div>
+        </ul>
+      {{/each}}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <a href="#" class="btn btn-success add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
+      <div class="list-group docs-list">
+      {{#each docs}}
+        <ul class="list-group-item docs-list__doc">
+          <a href="{{pathFor '/documents/:_id' _id=_id}}">{{title}}</a>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-default docs-list-btn__draft {{#if $eq this.mode 'draft'}}docs-list-btn__selected{{/if}}">Draft</button>
+            <button type="button" class="btn btn-default docs-list-btn__public {{#if $eq this.mode 'public'}}docs-list-btn__selected{{/if}}">Public</button>
+            <button type="button" class="btn btn-danger docs-list-btn__delete">DELETE</button>
+          </div>
+        </ul>
+      {{else}}
+        <p class="alert alert-warning">No documents yet, friend.</p>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+{{/if}}
 {{/if}}
 </template>
 

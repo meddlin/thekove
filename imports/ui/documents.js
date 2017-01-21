@@ -2,11 +2,16 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import { BlogPosts } from '../api/blog-posts.js';
+import { BlogTags } from '../api/blog-tags.js';
 import './documents.html';
 
 Template.documents.helpers({
 	docs() {
-		return BlogPosts.find();
+		return Template.instance().posts();
+	},
+
+	tags() {
+		return Template.instance().tags();
 	},
 
 	auth() {
@@ -32,21 +37,48 @@ Template.documents.events({
 
 	'click .docs-list-btn__delete'() {
 		alert('DELETE post clicked!');
+	},
+
+	'click .tag-btn__save'(event, tmpl) {
+		let tagName = this.name;
+		Meteor.call('BlogTags.upsert', tagName, function(err, res){
+			if (res) {
+				alert(res);
+			}
+		});
+	},
+
+	'click .tag-btn__delete'() {
+		let tagId = this._id;
+		Meteor.call('BlogTags.delete', tagId, function(err, res) {
+			if (err) {
+				console.log('err ' + err);
+			}
+			if (res) {
+				console.log('res ' + res);
+			}
+		});
 	}
 });
 
 Template.documents.onCreated(function() {
-	this.BlogPostsSub = new ReactiveVar(null);
+	var instance = this;
 
-	this.autorun(() => {
-		Template.instance().BlogPostsSub.set( Meteor.subscribe('BlogPosts_all') );
+	instance.autorun(() => {
+		var postsSub = instance.subscribe('BlogPosts_all')
+		var tagSub = instance.subscribe('BlogTags_all');
 	});
+
+	instance.posts = function() {
+		return BlogPosts.find().fetch();
+	}
+
+	instance.tags = function() {
+		return BlogTags.find().fetch();
+	}
 });
 
-Template.documents.onDestroyed(function() {
-	var subToStop = Template.instance().BlogPostsSub.get();
-	subToStop.stop();
-});
+
 
 Template.documents_newDocModal.events({
 	'submit form'(e) {

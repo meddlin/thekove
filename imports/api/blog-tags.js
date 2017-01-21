@@ -32,6 +32,10 @@ Meteor.methods({
 
 		let tagSlug = tag_text.replace(/\s/g, '-').replace('?', '').replace('!', '');
 
+		/*
+			TODO : check for any BlogPosts which also need to be updated!
+		*/
+
 		let res = BlogTags.upsert({
 				name: tag_text
 			},
@@ -43,6 +47,12 @@ Meteor.methods({
 		});
 
 		return res;
+	},
+
+	'BlogTags.delete'(id) {
+		check(id, String);
+
+		return BlogTags.remove({_id: id});
 	},
 
 	'BlogTags.FetchList'() {

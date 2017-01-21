@@ -2,11 +2,16 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 import { BlogPosts } from '../api/blog-posts.js';
+import { BlogTags } from '../api/blog-tags.js';
 import './landing.html';
 
 Template.landing.helpers({
 	docs() {
 		return BlogPosts.find();
+	},
+
+	tags(){
+		return BlogTags.find();
 	},
 
 	formattedCreateDate(date) {
@@ -23,15 +28,14 @@ Template.landing.helpers({
 });
 
 Template.landing.onCreated(function() {
-	this.blogLatestSub = new ReactiveVar(null);
+	var instance = this;
 
-	this.autorun(() => {
-		Template.instance().blogLatestSub.set(Meteor.subscribe('BlogPosts_latest'));
+	instance.autorun(() => {
+		var subscription = instance.subscribe('BlogPosts_latest');
+		var tagSubscription = instance.subscribe('BlogTags_all');
 	});
 });
 
 Template.landing.onDestroyed(() => {
-	var subToStop = Template.instance().blogLatestSub.get();
-	subToStop.stop();
 	DocHead.setTitle('');
 });

@@ -36,6 +36,9 @@ if (Meteor.isServer) {
 	Meteor.publish('BlogPosts_single', function(id) {
 		return BlogPosts.find({_id: id});
 	});
+	Meteor.publish('BlogPosts_singleTitle', function(tag_name, slug) {
+		return BlogPosts.find({tag: tag_name, slug: slug});
+	});
 
 	Meteor.publish('BlogPosts_all', function() {
 		return BlogPosts.find();
@@ -48,14 +51,23 @@ if (Meteor.isServer) {
 	Meteor.publish('BlogPosts_latest', function() {
 		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {createdAt: -1}, limit: 20});
 	});
+
+	Meteor.publish('BlogPosts_section', function(tag_name) {
+		return BlogPosts.find({tag: tag_name});
+	});
 }
 
 Meteor.methods({
 	'BlogPosts.insert'(title, tags) {
 		check(title, String);
 
+		let postSlug = title.replace(/\s/g, '-');
+		postSlug = postSlug.replace('?', '');
+		postSlug = postSlug.replace('!', '');
+
 		let id = BlogPosts.insert({
 			title: title,
+			slug: postSlug,
 			tags: tags,
 			createdAt: new Date()
 		});
@@ -71,6 +83,10 @@ Meteor.methods({
 		check(updatedTag, String);
 		check(updatedDesc, String);
 
+		let updatedSlug = updatedTitle.replace(/\s/g, '-');
+		updatedSlug = updatedSlug.replace('?', '');
+		updatedSlug = updatedSlug.replace('!', '');
+
 		BlogPosts.update(id, 
 			{ $set: 
 				{
@@ -78,6 +94,7 @@ Meteor.methods({
 					body: updatedBody,
 					mode: updatedMode,
 					tag: updatedTag,
+					slug: updatedSlug,
 					description: updatedDesc
 				} 
 			});

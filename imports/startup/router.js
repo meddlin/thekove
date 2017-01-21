@@ -8,7 +8,11 @@ import '../ui/privacy.js';
 import '../ui/blog.js';
 import '../ui/documents.js';
 import '../ui/editor.js';
+
+import '../ui/tag-section/section.js';
+import '../ui/tag-section/cpat.js';
 import '../ui/post.js';
+
 import '../ui/admin/admin.js';
 
 FlowRouter.route('/', {
@@ -38,11 +42,30 @@ FlowRouter.route('/blog', {
 		DocHead.setTitle('TheKove -- Blog');
 	}
 });
-FlowRouter.route('/blog/:_id', {
+/* a routing experiement */
+FlowRouter.route('/blog/cpat', {
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'cpat'});
+		DocHead.setTitle('TheKove -- CPAT');
+	}
+});
+FlowRouter.route('/blog/:_name', {
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'section'});
+		DocHead.setTitle('TheKove -- ' + params._name);
+	}
+});
+FlowRouter.route('/blog/:_name/:_slug', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
 	}
 });
+/****/
+/*FlowRouter.route('/blog/:_id', {   // already broken
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'post'});
+	}
+});*/
 
 
 FlowRouter.route('/documents', {

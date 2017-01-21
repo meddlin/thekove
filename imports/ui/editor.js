@@ -36,7 +36,7 @@ Template.editor.helpers({
 	tagOptions() {
 		let tags = BlogTags.find().fetch();
 		let tagOptions = _.map(tags, (t) => {
-			return { option: t.name };
+			return { option: t.slug };
 		});
 		return tagOptions;
 	},

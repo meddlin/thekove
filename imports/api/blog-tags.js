@@ -8,6 +8,9 @@ BlogTags.schema = new SimpleSchema({
 	name: {
 		type: String
 	},
+	slug: {
+		type: String
+	},
 
 	updatedAt: {
 		type: Date
@@ -27,12 +30,15 @@ Meteor.methods({
 	'BlogTags.upsert'(tag_text) {
 		check(tag_text, String);
 
+		let tagSlug = tag_text.replace(/\s/g, '-').replace('?', '').replace('!', '');
+
 		let res = BlogTags.upsert({
 				name: tag_text
-			}, 
-			{ $set: { 
+			},
+			{ $set: {
 					name: tag_text,
-					createdAt: new Date() 
+					slug: tagSlug,
+					createdAt: new Date()
 			}
 		});
 

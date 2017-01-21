@@ -3,6 +3,15 @@ body {
 	overflow-x: hidden;
 }
 
+.site-toc > ul {
+	list-style: none;
+    font-size: 1.2em;
+}
+.site-toc > ul > li {
+	padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
 /* blog post styles */
 .blog {
 	border-left: 1px solid black;

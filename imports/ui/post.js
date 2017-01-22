@@ -14,12 +14,13 @@ Template.post.helpers({
 
 Template.post.onCreated(function() {
 	var instance = this;
-	var postId = FlowRouter.getParam("_id");
+	var tagName = FlowRouter.getParam("_name");
+	var postTitle = FlowRouter.getParam("_slug");
 
 	instance.autorun(function() {
-		var subscription = instance.subscribe('BlogPosts_single', postId);
+		var subscription = instance.subscribe('BlogPosts_singleTitle', tagName, postTitle);
 		if (subscription.ready()) { // use instance.subscriptionsReady() for multiple subscriptions
-			console.log('BlogPosts_single is ready');
+			console.log('BlogPosts_singleTitle is ready');
 		}
 	});
 

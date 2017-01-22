@@ -3,6 +3,15 @@ body {
 	overflow-x: hidden;
 }
 
+.site-toc > ul {
+	list-style: none;
+    font-size: 1.2em;
+}
+.site-toc > ul > li {
+	padding-top: 0.25em;
+    padding-bottom: 0.25em;
+}
+
 /* blog post styles */
 .blog {
 	border-left: 1px solid black;
@@ -30,6 +39,14 @@ body {
 /* END : blog post styles */
 
 
+/* section styles */
+.section-title {
+	font-size: 1.5em;
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+/* END: section styles*/
+
 
 /* navbar styles */
 .navbar.navbar-default {
@@ -37,7 +54,10 @@ body {
 	border-radius: 0;
 	font-family: 'Monteserrat', sans-serif;
 }
-.nav-link { color: #259C93 !important; }
+.nav-link {
+	color: #259C93 !important;
+	font-weight: 700;
+}
 .navbar-brand { color: #259C93 !important; }
 /* END : navbar styles */
 

@@ -11,7 +11,6 @@ Template.editor.helpers({
 		var sub = Template.instance().BlogPostsSub.get();
 		if (sub.ready()) {
 			var postId = FlowRouter.getParam('_id');
-			/*var singleDoc = BlogPosts.find({_id: postId}).fetch()[0];*/
 			var singleDoc = BlogPosts.findOne();
 
 			var cm = Template.instance().codeMirrorHold.get();
@@ -36,7 +35,7 @@ Template.editor.helpers({
 	tagOptions() {
 		let tags = BlogTags.find().fetch();
 		let tagOptions = _.map(tags, (t) => {
-			return { option: t.name };
+			return { option: t.slug };
 		});
 		return tagOptions;
 	},

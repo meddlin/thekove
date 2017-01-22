@@ -1,15 +1,16 @@
 <template name="landing">
+{{#if Template.subscriptionsReady}}
+
 	<div class="row">
 		<div class="col-sm-10">
 			<div class="blog">
 				{{#each docs}}
 					<div class="blog-post">
 						<div class="blog-post-title">
-							<a href="{{pathFor '/blog/:_id' _id=_id}}">{{title}}</a>
+							<a href="{{pathFor '/blog/:_name/:_slug' _name=tag _slug=slug}}">{{title}}</a>
 						</div>
 						<div class="blog-post-date"><i>{{formattedCreateDate createdAt}}</i></div>
 {{#markdown}}
-<!-- {{trimmedBody body}} -->
 {{this.description}}
 {{/markdown}}
 					</div>
@@ -17,15 +18,15 @@
 			</div>
 		</div>
 		<div class="col-sm-2">
-			<!-- <div class="site-toc">
+			<div class="site-toc">
 				<ul>
-					Sections
-					<li>Project: CPAT</li>
-					<li>Cooking</li>
-					<li>Just fun...</li>
-					<li>Christian</li>
+					{{#each tags}}
+					<li><a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a></li>
+					{{/each}}
 				</ul>
-			</div> -->
+			</div>
 		</div>
 	</div>
+
+{{/if}}
 </template>

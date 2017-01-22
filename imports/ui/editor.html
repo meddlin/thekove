@@ -10,6 +10,7 @@
 			<label>Tags</label>
 			<select class="form-control"  id="tag-select">
 				<option disabled="disabled">Please Select</option>
+				<option label=" "></option>
 				{{#each tagOptions}}
 					<option value="{{this.option}}" {{isSelected this.option}}>
 						{{this.option}}

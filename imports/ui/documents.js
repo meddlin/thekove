@@ -43,7 +43,7 @@ Template.documents.events({
 		let tagName = this.name;
 		Meteor.call('BlogTags.upsert', tagName, function(err, res){
 			if (res) {
-				alert(res);
+				console.log(res);
 			}
 		});
 	},

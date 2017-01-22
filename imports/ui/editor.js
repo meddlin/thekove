@@ -11,7 +11,6 @@ Template.editor.helpers({
 		var sub = Template.instance().BlogPostsSub.get();
 		if (sub.ready()) {
 			var postId = FlowRouter.getParam('_id');
-			/*var singleDoc = BlogPosts.find({_id: postId}).fetch()[0];*/
 			var singleDoc = BlogPosts.findOne();
 
 			var cm = Template.instance().codeMirrorHold.get();

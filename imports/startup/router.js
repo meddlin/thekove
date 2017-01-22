@@ -49,10 +49,10 @@ FlowRouter.route('/blog/cpat', {
 		DocHead.setTitle('TheKove -- CPAT');
 	}
 });
-FlowRouter.route('/blog/:_name', {
+FlowRouter.route('/blog/:_slug', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'section'});
-		DocHead.setTitle('TheKove -- ' + params._name);
+		DocHead.setTitle('TheKove -- ' + params._slug);
 	}
 });
 FlowRouter.route('/blog/:_name/:_slug', {

@@ -21,7 +21,7 @@
 			<div class="site-toc">
 				<ul>
 					{{#each tags}}
-					<li><a href="{{pathFor '/blog/:_name' _name=name}}">{{name}}</a></li>
+					<li><a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a></li>
 					{{/each}}
 				</ul>
 			</div>

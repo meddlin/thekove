@@ -6,17 +6,25 @@ import './section.html';
 
 Template.section.helpers({
 	urlName() {
-		return FlowRouter.getParam("_name");
+		return FlowRouter.getParam("_slug");
 	},
 
 	posts() {
 		return Template.instance().sectionPosts();
+	},
+
+	formattedCreateDate(date) {
+		if (date) {
+			return moment(date).format("MMMM Do YYYY");
+		} else {
+			return "";
+		}
 	}
 });
 
 Template.section.onCreated(function() { 
 	var instance = this;
-	var tag_name = FlowRouter.getParam("_name");
+	var tag_name = FlowRouter.getParam("_slug");
 
 	instance.autorun(function() {
 		var subscription = instance.subscribe('BlogPosts_section', tag_name);

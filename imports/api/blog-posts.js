@@ -64,6 +64,7 @@ Meteor.methods({
 		let postSlug = title.replace(/\s/g, '-');
 		postSlug = postSlug.replace('?', '');
 		postSlug = postSlug.replace('!', '');
+		postSlug = postSlug.replace(':', '');
 
 		let id = BlogPosts.insert({
 			title: title,
@@ -86,6 +87,7 @@ Meteor.methods({
 		let updatedSlug = updatedTitle.replace(/\s/g, '-');
 		updatedSlug = updatedSlug.replace('?', '');
 		updatedSlug = updatedSlug.replace('!', '');
+		updatedSlug = updatedSlug.replace(':', '');
 
 		BlogPosts.update(id, 
 			{ $set: 

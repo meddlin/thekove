@@ -36,8 +36,8 @@ if (Meteor.isServer) {
 	Meteor.publish('BlogPosts_single', function(id) {
 		return BlogPosts.find({_id: id});
 	});
-	Meteor.publish('BlogPosts_singleTitle', function(tag_name, slug) {
-		return BlogPosts.find({tag: tag_name, slug: slug});
+	Meteor.publish('BlogPosts_singleTitle', function(postTitleSlug) {
+		return BlogPosts.find({slug: postTitleSlug});
 	});
 
 	Meteor.publish('BlogPosts_all', function() {

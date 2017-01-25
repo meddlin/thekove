@@ -7,18 +7,16 @@ import './post.html';
 Template.post.helpers({
 	doc() {
 		let post = Template.instance().myPosts();
-		DocHead.setTitle('TheKove -- ' + post.title);
 		return post;
 	}
 });
 
 Template.post.onCreated(function() {
 	var instance = this;
-	var tagName = FlowRouter.getParam("_name");
-	var postTitle = FlowRouter.getParam("_slug");
+	var postTitle = FlowRouter.getParam("_postTitle");
 
 	instance.autorun(function() {
-		var subscription = instance.subscribe('BlogPosts_singleTitle', tagName, postTitle);
+		var subscription = instance.subscribe('BlogPosts_singleTitle', postTitle);
 		if (subscription.ready()) { // use instance.subscriptionsReady() for multiple subscriptions
 			console.log('BlogPosts_singleTitle is ready');
 		}

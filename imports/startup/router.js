@@ -42,31 +42,24 @@ FlowRouter.route('/blog', {
 		DocHead.setTitle('TheKove -- Blog');
 	}
 });
-/* a routing experiement */
-FlowRouter.route('/blog/cpat', {
+FlowRouter.route('/blog/tag/cpat', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'cpat'});
 		DocHead.setTitle('TheKove -- CPAT');
 	}
 });
-FlowRouter.route('/blog/:_slug', {
+FlowRouter.route('/blog/tag/:_slug', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'section'});
 		DocHead.setTitle('TheKove -- ' + params._slug);
 	}
 });
-FlowRouter.route('/blog/:_name/:_slug', {
+FlowRouter.route('/blog/:_postTitle', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
+		DocHead.setTitle('TheKove -- ' + params._postTitle);
 	}
 });
-/****/
-/*FlowRouter.route('/blog/:_id', {   // already broken
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'post'});
-	}
-});*/
-
 
 FlowRouter.route('/documents', {
 	action: function(params) {

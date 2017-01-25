@@ -1,6 +1,7 @@
 import '../ui/layouts/main-layout.js';
 import '../ui/layouts/portfolio-layout.js';
 import '../ui/layouts/plain-layout.js';
+import '../ui/layouts/blog-post-layout.js';
 
 import '../ui/landing.js';
 import '../ui/about.js';

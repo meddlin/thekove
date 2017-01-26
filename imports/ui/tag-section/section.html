@@ -9,7 +9,7 @@
 			{{#each posts}}
 			<div class="blog-post">
 								<div class="blog-post-title">
-									<a href="{{pathFor '/blog/:_name/:_slug' _name=tag _slug=slug}}">{{title}}</a>
+									<a href="{{pathFor '/blog/:_postTitle' _postTitle=slug}}">{{title}}</a>
 								</div>
 								<div class="blog-post-date"><i>{{formattedCreateDate createdAt}}</i></div>
 {{#markdown}}

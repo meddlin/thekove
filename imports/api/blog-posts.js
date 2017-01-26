@@ -45,7 +45,7 @@ if (Meteor.isServer) {
 	});
 
 	Meteor.publish('BlogPosts_allPublic', function() {
-		return BlogPosts.find({mode: {$eq: "public"}}, {sort: {updatedAt: -1}});
+		return BlogPosts.find({ mode: {$eq: "public"}}, {sort: {updatedAt: -1}});
 	});
 
 	Meteor.publish('BlogPosts_latest', function() {
@@ -53,7 +53,10 @@ if (Meteor.isServer) {
 	});
 
 	Meteor.publish('BlogPosts_section', function(tag_name) {
-		return BlogPosts.find({tag: tag_name});
+		return BlogPosts.find({
+			tag: tag_name, 
+			mode: {$eq: "public"}
+		});
 	});
 }
 

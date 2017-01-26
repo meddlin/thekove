@@ -64,10 +64,20 @@ Meteor.methods({
 	'BlogPosts.insert'(title, tags) {
 		check(title, String);
 
-		let postSlug = title.replace(/\s/g, '-');
+		let titleSplit = title.split(" ");
+		for (let i = 0; i < titleSplit.length; i++) {
+			titleSplit[i] = titleSplit[i].replace(/[^a-z0-9+]+/gi, "");
+		}
+		let postSlug = titleSplit.join('-').toLowerCase();
+
+
+
+		// let postSlug = title.replace(/\W+/g, "-");
+
+		/*let postSlug = title.replace(/\s/g, '-');
 		postSlug = postSlug.replace('?', '');
 		postSlug = postSlug.replace('!', '');
-		postSlug = postSlug.replace(':', '');
+		postSlug = postSlug.replace(':', '');*/
 
 		let id = BlogPosts.insert({
 			title: title,
@@ -87,10 +97,16 @@ Meteor.methods({
 		check(updatedTag, String);
 		check(updatedDesc, String);
 
-		let updatedSlug = updatedTitle.replace(/\s/g, '-');
+		let titleSplit = updatedTitle.split(" ");
+		for (let i = 0; i < titleSplit.length; i++) {
+			titleSplit[i] = titleSplit[i].replace(/[^a-z0-9+]+/gi, "");
+		}
+		let updatedSlug = titleSplit.join('-').toLowerCase();
+
+		/*let updatedSlug = updatedTitle.replace(/\s/g, '-');
 		updatedSlug = updatedSlug.replace('?', '');
 		updatedSlug = updatedSlug.replace('!', '');
-		updatedSlug = updatedSlug.replace(':', '');
+		updatedSlug = updatedSlug.replace(':', '');*/
 
 		BlogPosts.update(id, 
 			{ $set: 

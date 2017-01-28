@@ -58,6 +58,13 @@ if (Meteor.isServer) {
 			mode: {$eq: "public"}
 		});
 	});
+
+	Meteor.publish('BlogPosts_cpat', function() {
+		return BlogPosts.find({
+			tag: 'cpat',
+			mode: {$eq: "public"}
+		});
+	});
 }
 
 Meteor.methods({

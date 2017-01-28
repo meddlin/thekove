@@ -1,3 +1,26 @@
 <template name="cpat">
-More info on CPAT to come...
+{{#if Template.subscriptionsReady}}
+<div class="section-title">
+	/cpat
+</div>
+
+
+<div class="row">
+	<div class="col-sm-10">
+		<div class="blog">
+		{{#each posts}}
+			<div class="blog-post">
+				<div class="blog-post-title">
+					<a href="{{pathFor '/blog/:_postTitle' _postTitle=slug}}">{{title}}</a>
+				</div>
+				<div class="blog-post-date">
+					<i>{{formattedCreateDate createdAt}}</i>
+				</div>
+			</div>
+		{{/each}}
+		</div>
+	</div>
+</div>
+
+{{/if}}
 </template>

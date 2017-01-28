@@ -1,6 +1,6 @@
 export const SiteContents = {
 		about: {
-			headerBlock: "I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve C#, JavaScript, and some other cool stuff in the Microsoft stack. I've also taken a liking to experimenting with web development in my free time I've also taken a liking to web development with Meteor.js, and have a couple ongoing projects utilizing it (like this website!).",
+			headerBlock: "I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve C#, TypeScript/JavaScript, Knockout.js, and some other fun stuff in the Microsoft stack. I've also taken a liking to experimenting with web development in my free time, and have a couple ongoing projects utilizing Meteor.js (like this website!).",
 			headerBlockLink: 'https://github.com/meddlin',
 
 			// projects

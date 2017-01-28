@@ -1,12 +1,14 @@
 <template name="editor">
 {{#if auth}}
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-sm-12">
 			<label>Document Title</label>
 			<input type="text" class="doc-title" value="{{doc.title}}" />
-			<br />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
 			<label>Current tag: {{currentTag}}</label>
-			<br />
 			<label>Tags</label>
 			<select class="form-control"  id="tag-select">
 				<option disabled="disabled">Please Select</option>
@@ -17,16 +19,23 @@
 					</option>
 				{{/each}}
 			</select>
-			<br />
+		</div>
+		<div class="col-sm-3">
 			<label>Mode</label>
 			<input type="text" class="doc-mode" value="{{doc.mode}}" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
 			<label>Description</label>
 			<input type="text" id="post-description" value="{{doc.description}}" />
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-xs-12">
 			<div class="btn btn-success save-button">Save</div>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-				Create New Tag
+				New Tag
 			</button>
 		</div>
 	</div>

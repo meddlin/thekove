@@ -123,6 +123,17 @@ body {
 }
 /* END : about styles*/
 
+
+/* editor styles */
+.doc-title {
+	width: 30em;
+}
+
+#post-description {
+	width: 100%;
+}
+/* END : editor styles*/
+
 .gutter-blurb {
 	display: flex;
     flex-direction: row;

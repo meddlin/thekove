@@ -77,15 +77,6 @@ Meteor.methods({
 		}
 		let postSlug = titleSplit.join('-').toLowerCase();
 
-
-
-		// let postSlug = title.replace(/\W+/g, "-");
-
-		/*let postSlug = title.replace(/\s/g, '-');
-		postSlug = postSlug.replace('?', '');
-		postSlug = postSlug.replace('!', '');
-		postSlug = postSlug.replace(':', '');*/
-
 		let id = BlogPosts.insert({
 			title: title,
 			slug: postSlug,
@@ -109,11 +100,6 @@ Meteor.methods({
 			titleSplit[i] = titleSplit[i].replace(/[^a-z0-9+]+/gi, "");
 		}
 		let updatedSlug = titleSplit.join('-').toLowerCase();
-
-		/*let updatedSlug = updatedTitle.replace(/\s/g, '-');
-		updatedSlug = updatedSlug.replace('?', '');
-		updatedSlug = updatedSlug.replace('!', '');
-		updatedSlug = updatedSlug.replace(':', '');*/
 
 		BlogPosts.update(id, 
 			{ $set: 

@@ -30,7 +30,11 @@ Meteor.methods({
 	'BlogTags.upsert'(tag_text) {
 		check(tag_text, String);
 
-		let tagSlug = tag_text.replace(/\s/g, '-').replace('?', '').replace('!', '');
+		let textSplit = tag_text.split(" ");
+		for (let i = 0; i < textSplit.length; i++) {
+			textSplit[i] = textSplit[i].replace(/[^a-z0-9+]+/gi, "");
+		}
+		let tagSlug = textSplit.join('-').toLowerCase();
 
 		/*
 			TODO : check for any BlogPosts which also need to be updated!

@@ -9,7 +9,14 @@
 						<div class="blog-post-title">
 							<a href="{{pathFor '/blog/:_postTitle' _postTitle=slug}}">{{title}}</a>
 						</div>
-						<div class="blog-post-date"><i>{{formattedCreateDate createdAt}}</i></div>
+						<div class="blog-subsection">
+							<div class="blog-post-date">
+								<i>{{formattedCreateDate createdAt}}</i>
+							</div>
+							<div class="blog-post-tag">
+								<a href="{{pathFor '/blog/tag/:_slug' _slug=tag}}">{{tag}}</a>
+							</div>
+						</div>
 {{#markdown}}
 {{this.description}}
 {{/markdown}}

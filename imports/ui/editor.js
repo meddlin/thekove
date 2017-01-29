@@ -88,7 +88,7 @@ Template.editor.events({
 		let text = $('#new-tag-input').val();
 
 		if (text !== '' || text !== null) {
-			Meteor.call('BlogTags.upsert', text, (err, res) => {
+			Meteor.call('BlogTags.insert', text, (err, res) => {
 				if (res.numberAffected && res.numberAffected > 0){
 					$('#new-tag-input').val('');
 				} else if (err) {

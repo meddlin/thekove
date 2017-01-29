@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import { BlogPosts } from '../api/blog-posts.js';
 import { BlogTags } from '../api/blog-tags.js';
@@ -13,6 +14,12 @@ Template.documents.helpers({
 	tags() {
 		return Template.instance().tags();
 	},
+
+
+	tagForEdit() {
+		return Template.instance().tagForEdit.get();
+	},
+
 
 	auth() {
 		let user = Meteor.user();
@@ -58,11 +65,37 @@ Template.documents.events({
 				console.log('res ' + res);
 			}
 		});
+	},
+
+	'click .tag-btn__edit'(ev, tmpl) {
+		tmpl.tagForEdit.set(this);
+		$("#tag-edit-modal").modal();
+	},
+
+	'click .tag-edit__preview-slug'() {
+		let name = $("#tag-name-input").val();
+
+		/* code here for slug creation */
+	},
+
+	'click .tag-edit__save'(ev, tmpl) {
+		let tag = tmpl.tagForEdit.get();
+		let name = $("#tag-name-input").val();
+
+		Meteor.call('BlogTags.update', tag._id, name, function(err, res) {
+			if (err) {
+				console.log('err ' + err);
+			}
+			if (res) {
+				console.log('res ' + res);
+			}
+		});
 	}
 });
 
 Template.documents.onCreated(function() {
 	var instance = this;
+	instance.tagForEdit = new ReactiveVar(null);
 
 	instance.autorun(() => {
 		var postsSub = instance.subscribe('BlogPosts_all')

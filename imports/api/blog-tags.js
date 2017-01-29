@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
+import { BlogPosts } from './blog-posts.js';
+
 export const BlogTags = new Mongo.Collection('blog_tags');
 
 BlogTags.schema = new SimpleSchema({
@@ -27,7 +29,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-	'BlogTags.upsert'(tag_text) {
+	'BlogTags.insert'(tag_text) {
 		check(tag_text, String);
 
 		let textSplit = tag_text.split(" ");
@@ -35,10 +37,6 @@ Meteor.methods({
 			textSplit[i] = textSplit[i].replace(/[^a-z0-9+]+/gi, "");
 		}
 		let tagSlug = textSplit.join('-').toLowerCase();
-
-		/*
-			TODO : check for any BlogPosts which also need to be updated!
-		*/
 
 		let res = BlogTags.upsert({
 				name: tag_text
@@ -49,6 +47,36 @@ Meteor.methods({
 					createdAt: new Date()
 			}
 		});
+
+		return res;
+	},
+
+	'BlogTags.update'(id, updatedName) {
+		check(id, String);
+		check(updatedName, String);
+		
+		let titleSplit = updatedName.split(" ");
+		for (let i = 0; i < titleSplit.length; i++) {
+			titleSplit[i] = titleSplit[i].replace(/[^a-z0-9+]+/gi, "");
+		}
+		let updatedSlug = titleSplit.join('-').toLowerCase();
+
+		let currTag = BlogTags.findOne({_id: id});
+		let posts = BlogPosts.find({ tag: currTag.slug }).fetch();
+
+		if (posts.length > 0) {
+			_.each(posts, (p) => {
+				Meteor.call('BlogPosts.updateTag', p._id, updatedSlug);
+			});
+		}
+
+		let res = BlogTags.update(id, 
+			{ $set: 
+				{
+					name: updatedName,
+					slug: updatedSlug
+				}
+			});
 
 		return res;
 	},

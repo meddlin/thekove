@@ -114,6 +114,18 @@ Meteor.methods({
 			});
 	},
 
+	'BlogPosts.updateTag'(id, updatedTag) {
+		check(id, String);
+		check(updatedTag, String);
+
+		BlogPosts.update(id,  
+			{ $set: 
+				{
+					tag: updatedTag
+				} 
+			});
+	},
+
 	'BlogPosts.toggleMode'(id, updatedMode) {
 		check(id, String);
 		check(updatedMode, String);

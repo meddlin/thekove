@@ -156,7 +156,7 @@ body {
 
 .docs-list > .docs-list__doc {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 
 	justify-content: space-between;
 }

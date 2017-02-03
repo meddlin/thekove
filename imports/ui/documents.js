@@ -15,6 +15,9 @@ Template.documents.helpers({
 		return Template.instance().tags();
 	},
 
+	filteredDocs() {
+		return Template.instance().filteredDocs();
+	},
 
 	tagForEdit() {
 		return Template.instance().tagForEdit.get();
@@ -32,6 +35,14 @@ Template.documents.helpers({
 });
 
 Template.documents.events({
+	'click #showPublicDocs'(ev, tmpl) {
+		tmpl.docFilter.set("public");
+	},
+	'click #showDraftDocs'(ev, tmpl) {
+		tmpl.docFilter.set("draft");
+	},
+
+
 	'click .docs-list-btn__draft'() {
 		if (!this.mode) this.mode = "";
 		Meteor.call('BlogPosts.toggleMode', this._id, this.mode);
@@ -97,8 +108,10 @@ Template.documents.onCreated(function() {
 	var instance = this;
 	instance.tagForEdit = new ReactiveVar(null);
 
+	instance.docFilter = new ReactiveVar("draft"); // reactive basis for the helper to retrigger
+
 	instance.autorun(() => {
-		var postsSub = instance.subscribe('BlogPosts_all')
+		var postsSub = instance.subscribe('BlogPosts_listing')
 		var tagSub = instance.subscribe('BlogTags_all');
 	});
 
@@ -108,6 +121,12 @@ Template.documents.onCreated(function() {
 
 	instance.tags = function() {
 		return BlogTags.find().fetch();
+	}
+
+	instance.filteredDocs = function() {
+		return BlogPosts.find({
+			mode: instance.docFilter.get()
+		}).fetch();
 	}
 });
 

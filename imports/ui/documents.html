@@ -13,10 +13,9 @@
 						<input type="text" class="input-tag-name" value="{{name}}" />
 						<span>{{slug}}</span>
 						<div class="btn-group btn-group-sm">
-								<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#tag-edit-modal">Edit</button> -->
-								<button type="button" class="btn btn-default tag-btn__edit">Edit</button>
-								<button type="button" class="btn btn-default tag-btn__save">Save</button>
-								<button type="button" class="btn btn-danger tag-btn__delete">DELETE</button>
+							<button type="button" class="btn btn-default tag-btn__edit">Edit</button>
+							<button type="button" class="btn btn-default tag-btn__save">Save</button>
+							<button type="button" class="btn btn-danger tag-btn__delete">DELETE</button>
 						</div>
 				</ul>
 				{{/each}}
@@ -25,8 +24,16 @@
 		<div class="col-md-6">
 			<h4 class="page-header">Documents</h4>
 			<a href="#" class="btn btn-success add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div id="showPublicDocs" class="btn btn-sm btn-default">public</div>
+					<div id="showDraftDocs" class="btn btn-sm btn-default">draft</div>
+				</div>
+			</div>
+
 			<div class="list-group docs-list">
-				{{#each docs}}
+				{{#each filteredDocs}}
 				<ul class="list-group-item docs-list__doc">
 					<a href="{{pathFor '/documents/:_id' _id=_id}}">{{title}}</a>
 					<span>{{slug}}</span>

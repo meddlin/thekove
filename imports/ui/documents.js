@@ -18,6 +18,9 @@ Template.documents.helpers({
 	filteredDocs() {
 		return Template.instance().filteredDocs();
 	},
+	filterVar() {
+		return Template.instance().docFilter.get();
+	},
 
 	tagForEdit() {
 		return Template.instance().tagForEdit.get();

@@ -43,6 +43,16 @@ if (Meteor.isServer) {
 	Meteor.publish('BlogPosts_all', function() {
 		return BlogPosts.find();
 	});
+	Meteor.publish('BlogPosts_listing', function() {
+		return BlogPosts.find({}, {
+			fields: {
+				title: 1,
+				tag: 1,
+				slug: 1,
+				mode: 1
+			}
+		});
+	});
 
 	Meteor.publish('BlogPosts_allPublic', function() {
 		return BlogPosts.find({ mode: {$eq: "public"}}, {sort: {updatedAt: -1}});

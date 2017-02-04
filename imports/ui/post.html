@@ -1,13 +1,19 @@
 <template name="post">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet"> 
 {{#if Template.subscriptionsReady}}
 
+<div class="row">
+	<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+<div class="post-content">
 {{#with doc}}
-	<h1>{{this.title}}</h1>
+<h2>{{this.title}}</h2>
 {{#markdown}}
 {{this.body}}
 {{/markdown}}
 {{/with}}
+</div>
+	</div>
+</div>
 
 {{/if}}
 </template>

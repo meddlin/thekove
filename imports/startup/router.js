@@ -19,7 +19,7 @@ import '../ui/admin/admin.js';
 FlowRouter.route('/', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
-		DocHead.setTitle('TheKove -- Home');
+		DocHead.setTitle("TheKove -- that place between 'hello world' and semaphore");
 	}
 });
 

@@ -2,7 +2,7 @@
 {{#if Template.subscriptionsReady}}
 
 	<div class="row">
-		<div class="col-sm-10">
+		<div class="col-xs-12 col-sm-10">
 			<div class="blog">
 				{{#each docs}}
 					<div class="blog-post">
@@ -22,15 +22,6 @@
 {{/markdown}}
 					</div>
 				{{/each}}
-			</div>
-		</div>
-		<div class="col-sm-2">
-			<div class="site-toc">
-				<ul>
-					{{#each tags}}
-					<li><a href="{{pathFor '/blog/tag/:_slug' _slug=slug}}">{{name}}</a></li>
-					{{/each}}
-				</ul>
 			</div>
 		</div>
 	</div>

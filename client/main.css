@@ -3,6 +3,20 @@ body {
 	overflow-x: hidden;
 }
 
+.header-title-section {
+	display: flex;
+	flex-direction: column;
+}
+.header-title-section > a {
+	font-size: 1.5em;
+}
+.header-title-section > span {
+	color: white;
+	margin-top: -8px;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+}
+
 .site-toc > ul {
 	list-style: none;
     font-size: 1.2em;
@@ -37,7 +51,6 @@ body {
 }
 
 .post-content {
-	width: 65em;
 	font-family: 'Lato', sans-serif;
     font-size: 1.15em;
 }
@@ -64,6 +77,10 @@ body {
 	font-weight: 700;
 }
 .navbar-brand { color: #259C93 !important; }
+.navbar-right {
+	margin-top: 8px;
+    font-size: 1.1em;
+}
 /* END : navbar styles */
 
 /* home styles */

@@ -16,7 +16,7 @@ Template.comments.onCreated(function() {
 	var cd = Template.currentData();
 
 	instance.autorun(function() {
-		var subscription = instance.subscribe('BlogComments_all');
+		var subscription = instance.subscribe('BlogComments.all');
 		if (subscription.ready()) { // use instance.subscriptionsReady() for multiple subscriptions
 			
 		}

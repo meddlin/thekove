@@ -26,6 +26,8 @@ Template.section.onCreated(function() {
 	var instance = this;
 	var tag_name = FlowRouter.getParam("_slug");
 
+	DocHead.setTitle('TheKove -- ' + tag_name);
+
 	instance.autorun(function() {
 		var subscription = instance.subscribe('BlogPosts_section', tag_name);
 	});

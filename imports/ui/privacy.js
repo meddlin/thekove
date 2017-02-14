@@ -13,11 +13,9 @@ Template.privacy.helpers({
 Template.privacy.onCreated( function() {
 	var instance = this;
 
+	DocHead.setTitle('TheKove -- Privacy');
+
 	instance.SiteContents = function() {
 		return SiteContents;
 	}
-});
-
-Template.privacy.onDestroyed(() => {
-	DocHead.setTitle('');
 });

@@ -7,6 +7,9 @@ import './post.html';
 Template.post.helpers({
 	doc() {
 		let post = Template.instance().myPosts();
+
+		DocHead.setTitle("TheKove -- " + post.title);
+
 		return post;
 	}
 });
@@ -25,8 +28,4 @@ Template.post.onCreated(function() {
 	instance.myPosts = function() {
 		return BlogPosts.findOne();
 	};
-});
-
-Template.post.onDestroyed(function() {
-	DocHead.setTitle('');
 });

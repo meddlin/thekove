@@ -66,7 +66,3 @@ Template.siteContents.onCreated( function() {
 		return SiteContents.find().fetch();
 	};
 });
-
-Template.siteContents.onDestroyed( function() {
-	DocHead.setTitle('');
-});

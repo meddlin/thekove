@@ -16,49 +16,38 @@ import '../ui/post.js';
 
 import '../ui/admin/admin.js';
 
+
 FlowRouter.route('/', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'landing'});
-		DocHead.setTitle("TheKove -- that place between 'hello world' and semaphore");
 	}
 });
 
 FlowRouter.route('/about', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'about'});
-		DocHead.setTitle('TheKove -- About');
 	}
 });
 
 FlowRouter.route('/privacy', {
 	action: function(params) {
 		BlazeLayout.render('portfolioLayout', {content: 'privacy'});
-		DocHead.setTitle('TheKove -- Privacy');
 	}
 });
 
-FlowRouter.route('/blog', {
-	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'blog'});
-		DocHead.setTitle('TheKove -- Blog');
-	}
-});
 FlowRouter.route('/blog/tag/cpat', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'cpat'});
-		DocHead.setTitle('TheKove -- CPAT');
 	}
 });
 FlowRouter.route('/blog/tag/:_slug', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'section'});
-		DocHead.setTitle('TheKove -- ' + params._slug);
 	}
 });
 FlowRouter.route('/blog/:_postTitle', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
-		DocHead.setTitle('TheKove -- ' + params._postTitle);
 	}
 });
 
@@ -67,7 +56,6 @@ FlowRouter.route('/documents', {
 		BlazeLayout.render('mainLayout', {content: 'documents'});
 	}
 });
-
 
 FlowRouter.route('/documents/:_id', {
 	action: function(params) {
@@ -79,4 +67,4 @@ FlowRouter.route('/admin', {
 	action: function(params) {
 		BlazeLayout.render('plainLayout', {content: 'admin'});
 	}
-})
+});

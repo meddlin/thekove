@@ -30,12 +30,10 @@ Template.landing.helpers({
 Template.landing.onCreated(function() {
 	var instance = this;
 
+	DocHead.setTitle("TheKove -- that place between 'hello world' and semaphore");
+
 	instance.autorun(() => {
 		var subscription = instance.subscribe('BlogPosts_latest');
 		var tagSubscription = instance.subscribe('BlogTags_all');
 	});
-});
-
-Template.landing.onDestroyed(() => {
-	DocHead.setTitle('');
 });

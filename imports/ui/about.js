@@ -12,11 +12,9 @@ Template.about.helpers({
 Template.about.onCreated( function() {
 	var instance = this;
 
+	DocHead.setTitle("TheKove -- About");
+
 	instance.SiteContents = function() {
 		return SiteContents;
 	}
-});
-
-Template.about.onDestroyed(() => {
-	DocHead.setTitle('');
 });

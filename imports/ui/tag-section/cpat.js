@@ -21,6 +21,8 @@ Template.cpat.helpers({
 Template.cpat.onCreated(function() { 
 	var instance = this;
 
+	DocHead.setTitle('TheKove -- CPAT');
+
 	instance.autorun(function() {
 		var subscription = instance.subscribe('BlogPosts_cpat');
 	});

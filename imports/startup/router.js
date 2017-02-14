@@ -12,6 +12,7 @@ import '../ui/editor.js';
 
 import '../ui/tag-section/section.js';
 import '../ui/tag-section/cpat.js';
+import '../ui/comments/comments.js';
 import '../ui/post.js';
 
 import '../ui/admin/admin.js';

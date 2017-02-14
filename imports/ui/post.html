@@ -2,24 +2,25 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet"> 
 {{#if Template.subscriptionsReady}}
 
+{{#with doc}}
 <div class="row">
 	<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 <div class="post-content">
-{{#with doc}}
+
 <h2>{{this.title}}</h2>
 {{#markdown}}
 {{this.body}}
 {{/markdown}}
-{{/with}}
 </div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-		{{> comments postId="biff123"}}
+		{{> comments postId=this._id}}
 	</div>
 </div>
+{{/with}}
 
 {{/if}}
 </template>

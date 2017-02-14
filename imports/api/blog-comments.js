@@ -4,9 +4,10 @@ import { check } from 'meteor/check';
 
 export const BlogComments = new Mongo.Collection('blog_comments');
 
-BlogPosts.schema = new SimpleSchema({
+BlogComments.schema = new SimpleSchema({
 	postId: {
-		type: String
+		type: String,
+		regEx: SimpleSchema.RegEx.Id
 	},
 	body: {
 		type: String

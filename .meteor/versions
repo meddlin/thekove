@@ -10,6 +10,7 @@ aldeed:schema-index@1.1.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.5
 arillo:flow-router-helpers@0.5.2
+arkham:komentify@0.1.3
 autoupdate@1.2.11
 babel-compiler@6.14.1
 babel-runtime@1.0.1

@@ -8,8 +8,9 @@ BlogPosts.schema = new SimpleSchema({
 	title: {
 		type: String
 	},
-	tag: {
-		type: String
+	tags: {
+		type: [String],
+		optional: true
 	},
 	slug: {
 		type: String
@@ -78,7 +79,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-	'BlogPosts.insert'(title, tags) {
+	'BlogPosts.insert'(title) {
 		check(title, String);
 
 		let titleSplit = title.split(" ");
@@ -90,19 +91,19 @@ Meteor.methods({
 		let id = BlogPosts.insert({
 			title: title,
 			slug: postSlug,
-			tags: tags,
+			tags: [],
 			createdAt: new Date()
 		});
 
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedTitle, updatedBody, updatedMode, updatedTag, updatedDesc) {
+	'BlogPosts.update'(id, updatedTitle, updatedBody, updatedMode, updatedTags, updatedDesc) {
 		check(id, String);
 		check(updatedTitle, String);
 		check(updatedBody, String);
 		check(updatedMode, String);
-		check(updatedTag, String);
+		check(updatedTags, [String]);
 		check(updatedDesc, String);
 
 		let titleSplit = updatedTitle.split(" ");
@@ -122,6 +123,17 @@ Meteor.methods({
 					description: updatedDesc
 				} 
 			});
+	},
+
+	'BlogPosts.addTag'(id, newTag) {
+		check(id, String);
+		check(newTag, String);
+
+		let res = BlogPosts.update(id, {
+			$push: { tags: newTag }
+		});
+
+		return res;
 	},
 
 	'BlogPosts.updateTag'(id, updatedTag) {

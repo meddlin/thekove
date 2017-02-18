@@ -10,7 +10,6 @@ Template.editor.helpers({
 	doc() {
 		var sub = Template.instance().BlogPostsSub.get();
 		if (sub.ready()) {
-			var postId = FlowRouter.getParam('_id');
 			var singleDoc = BlogPosts.findOne();
 
 			var cm = Template.instance().codeMirrorHold.get();
@@ -96,6 +95,15 @@ Template.editor.events({
 				}
 			});
 		}
+	},
+
+	'click .add-tag-button'(event, template) {
+		var newTag = $('#testing-tag-input').val();
+		var postId = FlowRouter.getParam('_id');
+		Meteor.call('BlogPosts.addTag', postId, newTag, function(err, res){
+			if (err) console.log("add tag --> err: " + err);
+			if (res) console.log("add tag --> res: " + res);
+		});
 	}
 });
 

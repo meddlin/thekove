@@ -10,7 +10,7 @@ Upon first startup, the server is expecting a couple things:
 These are already set in the ```settings-dev.json``` located in the project root.
 
 ### SiteContents
-You can find most "author-defined", static content I'm using for [http://meddlin.net](meddlin.net) at ```\ui\content\content-config.js```. This is a naive implementation of a JSON object used to place this conent around the site instead of having the content dumped directly into the HTML. Start replacing/deleting content here if you're using this project as a boiler-plate.
+You can find most "author-defined", static content I've written for [meddlin.net](http://meddlin.net) at ```\ui\content\content-config.js```. This is a naive implementation of a JSON object used to place this conent around the site instead of having the content dumped directly into the HTML. Start replacing/deleting content here if you're using this project as a boiler-plate.
 
 ## Other Comments
 ### Isn't it overkill?

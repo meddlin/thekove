@@ -1,8 +1,20 @@
 # thekove
-A personal blog site built with Meteor.js. No React, no Angular, and not much craziness. Just Meteor and a couple basic packages.
+A personal blog site built with Meteor.js and Blaze UI. 
 
-## Isn't it overkill?
+## Getting Started
+### Environment Variables
+Upon first startup, the server is expecting a couple things:
+- defaultUserEmail
+- defaultUserPassword
+
+These are already set in the ```settings-dev.json``` located in the project root.
+
+### SiteContents
+You can find most "author-defined", static content I'm using for [http://meddlin.net](meddlin.net) at ```\ui\content\content-config.js```. This is a naive implementation of a JSON object used to place this conent around the site instead of having the content dumped directly into the HTML. Start replacing/deleting content here if you're using this project as a boiler-plate.
+
+## Other Comments
+### Isn't it overkill?
 Perhaps it is...but that's what personal projects are for, right?
 
-## Really...Blaze?!
-Why no React, Angular, or <js-framework>? I respect the efforts of those frameworks, but I'm not convinced they've really hit home with what we need for what the web is becoming. Blaze is integrated well with Meteor (for now), is easy enough to pick up, doesn't require new tooling, doesn't force weird source code mixing (staring at you, jsx), and I already knew it. That's about it.
+### Why Blaze?
+React, Angular, or ```<insert-fav-framework.js>``` are all great choices, but this project is supposed to be something I could pick up quickly and easily hack out a "solution" for whatever I need. Blaze offers this level of simplicity. There's little concern for performance, "scaling", etc. because ...it's a blog.

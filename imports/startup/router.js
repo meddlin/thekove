@@ -1,4 +1,5 @@
 import '../ui/layouts/main-layout.js';
+import '../ui/layouts/editor-layout.js';
 import '../ui/layouts/portfolio-layout.js';
 import '../ui/layouts/plain-layout.js';
 import '../ui/layouts/blog-post-layout.js';
@@ -59,7 +60,7 @@ FlowRouter.route('/documents', {
 
 FlowRouter.route('/documents/:_id', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'editor'});
+		BlazeLayout.render('editorLayout', {content: 'editor'});
 	}
 });
 

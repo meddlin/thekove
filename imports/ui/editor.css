@@ -1,0 +1,9 @@
+textarea {
+	min-height: 50px;
+	height: 10em;
+}
+
+#description-area {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}

@@ -1,0 +1,30 @@
+<template name="editorLayout">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="header-title-section">
+					<a href="/" class="navbar-brand">The Kove</a>
+					<span>that place between 'hello world' and semaphore</span>
+				</div>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav"></ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/about" class="nav-link">About</a></li>
+					{{#if currentUser}}
+					<li><a href="/documents" class="nav-link">Documents</a></li>
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		{{> Template.dynamic template=content}}
+	</div>
+</template>

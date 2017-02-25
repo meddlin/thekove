@@ -9,7 +9,7 @@ import '../ui/about.js';
 import '../ui/privacy.js';
 import '../ui/blog.js';
 import '../ui/documents.js';
-import '../ui/editor.js';
+import '../ui/editor/editor.js';
 
 import '../ui/tag-section/section.js';
 import '../ui/tag-section/cpat.js';

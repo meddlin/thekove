@@ -2,8 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import { BlogPosts } from '../api/blog-posts.js';
-import { BlogTags } from '../api/blog-tags.js';
+import { BlogPosts } from '../../api/blog-posts.js';
+import { BlogTags } from '../../api/blog-tags.js';
 import './editor.html';
 import './editor.css';
 

@@ -7,3 +7,7 @@ textarea {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
+
+#tag-select {
+	min-height: 10em;
+}

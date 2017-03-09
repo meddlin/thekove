@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { Match } from 'meteor/check';
 
 export const BlogPosts = new Mongo.Collection('blog_posts');
 
@@ -103,8 +104,8 @@ Meteor.methods({
 		check(updatedTitle, String);
 		check(updatedBody, String);
 		check(updatedMode, String);
-		check(updatedTags, [String]);
-		check(updatedDesc, String);
+		check(updatedTags, Match.Maybe([String]));
+		check(updatedDesc, Match.Maybe(String));
 
 		let titleSplit = updatedTitle.split(" ");
 		for (let i = 0; i < titleSplit.length; i++) {
@@ -118,7 +119,7 @@ Meteor.methods({
 					title: updatedTitle,
 					body: updatedBody,
 					mode: updatedMode,
-					tag: updatedTag,
+					tag: updatedTags,
 					slug: updatedSlug,
 					description: updatedDesc
 				} 

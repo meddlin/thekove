@@ -46,7 +46,7 @@ FlowRouter.route('/blog/tag/:_slug', {
 		BlazeLayout.render('mainLayout', {content: 'section'});
 	}
 });
-FlowRouter.route('/blog/:_postTitle', {
+FlowRouter.route('/blog/:_postSlug', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'post'});
 	}

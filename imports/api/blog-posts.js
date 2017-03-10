@@ -25,6 +25,10 @@ BlogPosts.schema = new SimpleSchema({
 	mode: {
 		type: String
 	},
+	headerImageLink: {
+		type: String,
+		optional: true
+	},
 
 	updatedAt: {
 		type: Date
@@ -99,9 +103,10 @@ Meteor.methods({
 		return id;
 	},
 
-	'BlogPosts.update'(id, updatedTitle, updatedBody, updatedMode, updatedTags, updatedDesc) {
+	'BlogPosts.update'(id, updatedTitle, updatedHeaderImageLink, updatedBody, updatedMode, updatedTags, updatedDesc) {
 		check(id, String);
 		check(updatedTitle, String);
+		check(updatedHeaderImageLink, Match.Maybe(String));
 		check(updatedBody, String);
 		check(updatedMode, String);
 		check(updatedTags, Match.Maybe([String]));
@@ -117,6 +122,7 @@ Meteor.methods({
 			{ $set: 
 				{
 					title: updatedTitle,
+					headerImageLink: updatedHeaderImageLink,
 					body: updatedBody,
 					mode: updatedMode,
 					tag: updatedTags,

@@ -1,0 +1,11 @@
+.header-image {
+	overflow: hidden;
+    height: 430px;
+    margin-left: -27em;
+    margin-right: -27em;
+    margin-top: -2em;
+}
+
+.header-image > img {
+	max-width: 100%;
+}

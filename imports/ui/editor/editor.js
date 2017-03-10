@@ -76,12 +76,13 @@ Template.editor.events({
 
 		let post = BlogPosts.findOne();
 		let title = $('.doc-title').val();
+		let headerImageLink = $('.doc-header-image').val();
 		let body = cm.getValue();
 		let mode = $('.doc-mode').val();
 		let tags = $('#tag-select').val();
 		let desc = $('#post-description').val();
 
-		Meteor.call('BlogPosts.update', post._id, title, body, mode, tags, desc);
+		Meteor.call('BlogPosts.update', post._id, title, headerImageLink, body, mode, tags, desc);
 	},
 
 	'click #tag-save-btn'() {

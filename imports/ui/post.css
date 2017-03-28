@@ -9,3 +9,15 @@
 .header-image > img {
 	max-width: 100%;
 }
+
+.post-image-center {
+	height: 50%;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.post-block-quote {
+	background-color: lightgray;
+	margin: 0.5em 3.0em 0.5em 3.0em;
+	padding: 1.5em 3em 1.5em 3em;
+}

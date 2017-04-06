@@ -3,11 +3,14 @@ A personal blog site built with Meteor.js and Blaze UI.
 
 ## Getting Started
 ### Environment Variables
-Upon first startup, the server is expecting a couple things:
-- defaultUserEmail
-- defaultUserPassword
+Run with ```meteor``` to start and create default user.
+Run with ```meteor --settings settings-dev.json``` to start and create user defined in settings file.
 
-These are already set in the ```settings-dev.json``` located in the project root.
+You can also supply the environment variables:
+- DEFAULT_USER_EMAIL
+- DEFAULT_USER_PASSWORD
+
+This default user is only created when no other users exist in the database. By default, this is the only 'admin' user for the project.
 
 ### SiteContents
 You can find most "author-defined", static content I've written for [meddlin.net](http://meddlin.net) at ```\ui\content\content-config.js```. This is a naive implementation of a JSON object used to place this conent around the site instead of having the content dumped directly into the HTML. Start replacing/deleting content here if you're using this project as a boiler-plate.

@@ -143,6 +143,14 @@ body {
 .portfolio__description {
 	font-family: Josefin Sans;
 }
+
+#about-pic {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px; 
+	/* width and height can be anything, as long as they're equal */
+}
+
 /* END : about styles*/
 
 

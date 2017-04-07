@@ -6,12 +6,14 @@ export const SiteContents = {
 			// projects
 			meddlinProjectTitle: 'The Meddlin Project',
 			meddlinProjectSubTitle: 'an experiment in network penetration testing',
-			meddlinProjectBlurb: '"You may have 10TB of data on your target, but if you can\'t get to the 4KB SiteContents of password hashes it\'s all useless." The capstone project of my final semester at SELU--this project is designed to innovate network penetration testing by reorganizing the flat text data produced from professional tools such as nmap and recon-ng. The Meteor.js framework was chosen because of the reactive data and rapid prototyping abilities it provided.',
+			meddlinProjectBlurb: '"You may have 10TB of data on your target, but if you can\'t get to the 4KB of password hashes it\'s all useless." The capstone project of my final semester at SELU--this project is designed to innovate network penetration testing by reorganizing the flat text data produced from professional tools such as nmap and recon-ng. The Meteor.js framework was chosen because of the reactive data and rapid prototyping abilities it provided.',
 			meddlinProjectTechnologies: 'Meteor.js 1.0 | MongoDB | JavaScript | nmap | recon-ng',
+			meddlinProjectLink: 'https://github.com/meddlin/themeddlinproject',
 
 			logbookProjectTitle: 'Logbook',
 			logbookProjectSubTitle: 'a simple logbook for simple, personal records',
-			logbookProjectBlurb: 'I\'ve always kept a little pocket-sized notebook to keep track of maintenance and fuel fill-ups on my vehicle. For now, this is only to serve a humble upgrade from the notebook scrawls, and to justify my desire to write an Android app.'
+			logbookProjectBlurb: 'I\'ve always kept a little pocket-sized notebook to keep track of maintenance and fuel fill-ups on my vehicle. For now, this is only to serve a humble upgrade from the notebook scrawls, and to justify my desire to write an Android app.',
+			logbookProjectLink: 'https://github.com/meddlin/logbook'
 		},
 		privacy: {
 			mainTitle: 'Privacy Policy',

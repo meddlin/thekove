@@ -26,12 +26,30 @@ body {
     padding-bottom: 0.25em;
 }
 
+
+/* landing styles */
+#landing-sections-gutter {
+	margin-top: 1em;
+}
+#landing-sections-gutter > ul {
+	list-style: none;
+	padding-left: 1em;
+}
+#landing-sections-gutter > ul > li {
+	padding-top: 10px;
+}
+/* END: landing styles */
+
+
 /* blog post styles */
 .blog {
 	border-left: 1px solid black;
 	padding-left: 3em;
 }
 
+.blog-post {
+	margin-bottom: 5em;
+}
 .blog-post > .blog-post-title {
 	cursor: pointer;
 	font-size: 1.4em;

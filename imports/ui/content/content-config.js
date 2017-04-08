@@ -1,6 +1,6 @@
 export const SiteContents = {
 		about: {
-			headerBlock: "I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve C#, TypeScript/JavaScript, Knockout.js, and some other fun stuff in the Microsoft stack. I've also taken a liking to experimenting with web development in my free time, and have a couple ongoing projects utilizing Meteor.js (like this website!).",
+			headerBlock: "I'm a software developer by trade, but my passion lies in network security. My current full-time engagements involve C#, TypeScript/JavaScript, Knockout.js, and some other fun stuff in the Microsoft stack. I've also taken a liking to experimenting with web development in my free time, and have a couple ongoing projects utilizing Meteor.js.",
 			headerBlockLink: 'https://github.com/meddlin',
 
 			// projects
@@ -11,9 +11,15 @@ export const SiteContents = {
 			meddlinProjectLink: 'https://github.com/meddlin/themeddlinproject',
 
 			logbookProjectTitle: 'Logbook',
-			logbookProjectSubTitle: 'a simple logbook for simple, personal records',
+			logbookProjectSubTitle: 'a logbook for simple, personal driving records',
 			logbookProjectBlurb: 'I\'ve always kept a little pocket-sized notebook to keep track of maintenance and fuel fill-ups on my vehicle. For now, this is only to serve a humble upgrade from the notebook scrawls, and to justify my desire to write an Android app.',
-			logbookProjectLink: 'https://github.com/meddlin/logbook'
+			logbookProjectLink: 'https://github.com/meddlin/logbook',
+
+			thekoveProjectTitle: 'thekove',
+			thekoveProjectSubTitle: 'a small sheltered bay',
+			thekoveProjectBlurb: 'Have you ever wanted to carve out your own place on the internet? I did. Originally meant to be a blog, \'thekove\' has turned into a minimal, personal CMS. This is a turn-key project for setting up a blog and online portfolio. You have more control than with a site builder, and the boilerplate code has been written. Fun tip: this site is built with it!',
+			thekoveProjectTechnologies: 'Meteor 1.4.x | MongoDB | JavaScript ',
+			thekoveProjectLink: 'https://github.com/meddlin/thekove'
 		},
 		privacy: {
 			mainTitle: 'Privacy Policy',

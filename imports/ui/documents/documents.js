@@ -2,9 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import { BlogPosts } from '../api/blog-posts.js';
-import { BlogTags } from '../api/blog-tags.js';
+import { BlogPosts } from '../../api/blog-posts.js';
+import { BlogTags } from '../../api/blog-tags.js';
 import './documents.html';
+import './documents.css';
 
 Template.documents.helpers({
 	docs() {
@@ -89,7 +90,7 @@ Template.documents.events({
 	'click .tag-edit__preview-slug'() {
 		let name = $("#tag-name-input").val();
 
-		/* code here for slug creation */
+		/* TODO : code here for slug creation */
 	},
 
 	'click .tag-edit__save'(ev, tmpl) {

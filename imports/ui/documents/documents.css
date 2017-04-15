@@ -1,0 +1,8 @@
+.tag-btn {
+	cursor: pointer;
+	text-align: center;
+    font-weight: 700;
+}
+.tag-btn:hover {
+	background-color: lightgrey;
+}

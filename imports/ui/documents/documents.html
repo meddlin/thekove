@@ -4,20 +4,30 @@
 	{{> documents_newDocModal}}	
 	
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<h4 class="page-header">Tags</h4>
 			<div class="list-group docs-list">
 				{{#each tags}}
 				<ul class="list-group-item docs-list__doc">
-					<div>
-						<a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a>
-						<input type="text" class="input-tag-name" value="{{name}}" />
-						<span>{{slug}}</span>
-					</div>
-					<div class="btn-group btn-group-sm">
-						<button type="button" class="btn btn-default tag-btn__edit">Edit</button>
-						<button type="button" class="btn btn-default tag-btn__save">Save</button>
-						<button type="button" class="btn btn-danger tag-btn__delete">DELETE</button>
+					<div class="row">
+						<div class="col-xs-6">
+							<div>
+								<a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a>
+								<input type="text" class="input-tag-name" value="{{name}}" />
+								<span>{{slug}}</span>
+							</div>
+						</div>
+						<div class="col-xs-3 col-xs-push-3">
+							<div class="btn-group btn-group-sm">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li class="tag-btn tag-btn__edit">Edit</li>
+									<li class="tag-btn tag-btn__save">Save</li>
+									<li class="tag-btn tag-btn__delete">DELETE</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</ul>
 				{{/each}}

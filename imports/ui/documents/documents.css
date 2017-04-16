@@ -6,3 +6,19 @@
 .tag-btn:hover {
 	background-color: lightgrey;
 }
+
+.docs-header {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-between;
+}
+.docs-header-right {
+	display: flex;
+	flex-direction: row;
+
+	align-items: center
+}
+.docs-header-right > a {
+	margin-right: 1em;
+}

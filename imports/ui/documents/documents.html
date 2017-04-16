@@ -34,15 +34,19 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<h4 class="page-header">Documents</h4>
-
 			<div class="row">
 				<div class="col-md-12">
-					<a href="#" class="btn btn-success btn-sm add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
+					<div class="docs-header">
+						<h4 class="page-header">Documents</h4>
 
-					<div class="btn-group btn-group-sm">
-						<button id="showPublicDocs" class="btn btn-sm btn-default {{#if $eq filterVar 'public'}}active{{/if}}">public</button>
-						<button id="showDraftDocs" class="btn btn-sm btn-default {{#if $eq filterVar 'draft'}}active{{/if}}">draft</button>
+						<div class="docs-header-right">
+							<a href="#" class="add-new-document" data-toggle="modal" data-target="#new-document-modal">Start a New Document</a>
+
+							<div class="btn-group btn-group-sm">
+								<button id="showPublicDocs" class="btn btn-sm btn-default {{#if $eq filterVar 'public'}}active{{/if}}">public</button>
+								<button id="showDraftDocs" class="btn btn-sm btn-default {{#if $eq filterVar 'draft'}}active{{/if}}">draft</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

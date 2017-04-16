@@ -17,6 +17,7 @@ import '../ui/post.js';
 
 import '../ui/admin/admin.js';
 
+import jquery from 'jquery';
 
 FlowRouter.route('/', {
 	action: function(params) {

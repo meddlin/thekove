@@ -7,6 +7,9 @@ import { BlogTags } from '../../api/blog-tags.js';
 import './editor.html';
 import './editor.css';
 
+import toastr from 'toastr';
+import '../toastr.css';
+
 Template.editor.helpers({
 	doc() {
 		var sub = Template.instance().BlogPostsSub.get();
@@ -148,6 +151,7 @@ Template.editor.onRendered( function() {
 	self.autorun(() => {
 		setInterval(() => {
 			$('.save-button').click();
+			toastr.info('Autosaving...');
 		}, delay);
 	});
 });

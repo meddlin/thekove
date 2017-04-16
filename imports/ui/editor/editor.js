@@ -133,6 +133,7 @@ Template.editor.onCreated( function() {
 });
 
 Template.editor.onRendered( function() {
+	var self = this;
 	var editor = CodeMirror.fromTextArea(this.find("#myTextarea"), {
 		lineNumbers: true,
 		fixedGutter: false,
@@ -142,6 +143,13 @@ Template.editor.onRendered( function() {
 	});
 
 	Template.instance().codeMirrorHold.set(editor);
+
+	let delay = 15 * 60 * 1000;
+	self.autorun(() => {
+		setInterval(() => {
+			$('.save-button').click();
+		}, delay);
+	});
 });
 
 Template.editor.onDestroyed(() => {

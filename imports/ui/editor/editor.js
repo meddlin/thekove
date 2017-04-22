@@ -57,21 +57,9 @@ Template.editor.events({
 		let cm = Template.instance().codeMirrorHold.get();
 		let text = cm.getValue();
 
-		Meteor.callPromise('convertMarkdown', text)
-			.then( function(html) {
+		Meteor.callPromise('convertMarkdown', text).then( function(html) {
 				$('#preview').html(html);
 			});
-
-		/*if (text !== "") {
-			Meteor.callPromise('convertMarkdown', text)
-				.then( function(html) {
-					$('#preview').html( html );
-					return Meteor.callPromise('updateDocument');
-				})
-				.catch( function(error) {
-					console.log(error.reason);
-				});
-		}*/
 	},
 
 	'click .save-button'(event, template){
@@ -148,12 +136,10 @@ Template.editor.onRendered( function() {
 	Template.instance().codeMirrorHold.set(editor);
 
 	let delay = 15 * 60 * 1000;
-	self.autorun(() => {
-		setInterval(() => {
+	setInterval(() => {
 			$('.save-button').click();
 			toastr.info('Autosaving...');
 		}, delay);
-	});
 });
 
 Template.editor.onDestroyed(() => {

@@ -27,6 +27,10 @@ Template.documents.helpers({
 		return Template.instance().tagForEdit.get();
 	},
 
+	docIdSelected() {
+		return Template.instance().docIdSelected.get();
+	},
+
 
 	auth() {
 		let user = Meteor.user();
@@ -57,8 +61,19 @@ Template.documents.events({
 		Meteor.call('BlogPosts.toggleMode', this._id, this.mode);
 	},
 
-	'click .docs-list-btn__delete'() {
-		alert('DELETE post clicked!');
+	'click .docs-list-btn__delete'(event, tmpl) {
+		tmpl.docIdSelected.set(this._id);
+		$('#post-delete-modal').modal();
+	},
+	'click .js-confirm-delete'(event, tmpl) {
+		let id = tmpl.docIdSelected.get();
+		if (id) {
+			Meteor.call('BlogPosts.deleteById', id, function(err, res) {
+				if (res) {
+					$('#post-delete-modal').modal('hide');
+				}
+			});
+		}
 	},
 
 	'click .tag-btn__save'(event, tmpl) {
@@ -111,6 +126,7 @@ Template.documents.events({
 Template.documents.onCreated(function() {
 	var instance = this;
 	instance.tagForEdit = new ReactiveVar(null);
+	instance.docIdSelected = new ReactiveVar(null);
 
 	instance.docFilter = new ReactiveVar("draft"); // reactive basis for the helper to retrigger
 

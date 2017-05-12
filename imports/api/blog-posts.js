@@ -132,6 +132,12 @@ Meteor.methods({
 			});
 	},
 
+	'BlogPosts.deleteById'(id) {
+		check(id, String);
+
+		BlogPosts.remove({_id: id});
+	},
+
 	'BlogPosts.addTag'(id, newTag) {
 		check(id, String);
 		check(newTag, String);

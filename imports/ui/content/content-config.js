@@ -17,7 +17,7 @@ export const SiteContents = {
 
 			thekoveProjectTitle: 'thekove',
 			thekoveProjectSubTitle: 'a small sheltered bay',
-			thekoveProjectBlurb: 'Have you ever wanted to carve out your own place on the internet? I did. Originally meant to be a blog, \'thekove\' has turned into a minimal, personal CMS. This is a turn-key project for setting up a blog and online portfolio. You have more control than with a site builder, and the boilerplate code has been written. Fun tip: this site is built with it!',
+			thekoveProjectBlurb: 'Originally meant to be a blog, \'thekove\' has turned into a minimal, personal CMS. This is a turn-key project for setting up a blog and online portfolio. You have more control than with a site builder, and the boilerplate code has been written. It\'s kind of like carving out your own little cove on the internet.',
 			thekoveProjectTechnologies: 'Meteor 1.4.x | MongoDB | JavaScript ',
 			thekoveProjectLink: 'https://github.com/meddlin/thekove'
 		},

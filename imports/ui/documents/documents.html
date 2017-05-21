@@ -10,14 +10,16 @@
 				{{#each tags}}
 				<ul class="list-group-item docs-list__doc">
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-xs-9">
 							<div>
 								<a href="{{pathFor '/blog/:_slug' _slug=slug}}">{{name}}</a>
-								<input type="text" class="input-tag-name" value="{{name}}" />
-								<span>{{slug}}</span>
+								<div>
+									<input type="text" class="input-tag-name" value="{{name}}" />
+									<span>{{slug}}</span>
+								</div>
 							</div>
 						</div>
-						<div class="col-xs-3 col-xs-push-3">
+						<div class="col-xs-3">
 							<div class="btn-group btn-group-sm">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span>
 								</button>
@@ -27,6 +29,12 @@
 									<li class="tag-btn tag-btn__delete">DELETE</li>
 								</ul>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<input type="checkbox" class="tag-check__sectionSetting" checked="{{sectionSetting}}" />
+							<label>Sections Listing</label>
 						</div>
 					</div>
 				</ul>

@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import toastr from 'toastr';
+import '../toastr.css';
 
 import { BlogPosts } from '../../api/blog-posts.js';
 import { BlogTags } from '../../api/blog-tags.js';
@@ -76,17 +78,32 @@ Template.documents.events({
 		}
 	},
 
-	'click .tag-btn__save'(event, tmpl) {
-		let tagName = this.name;
-		Meteor.call('BlogTags.upsert', tagName, function(err, res){
+	'click .tag-check__sectionSetting'(event) {
+		let id = this._id;
+		let setting = !this.sectionSetting;
+
+		Meteor.call('BlogTags.updateSectionSetting', id, setting, (err, res) => {
 			if (res) {
-				console.log(res);
+				toastr.success('Tag published as section');
+			}
+		});
+	},
+
+	'click .tag-btn__save'(event, tmpl) {
+		let id = this._id;
+		let tagName = this.name;
+		let sectionSetting = this.sectionSetting;
+
+		Meteor.call('BlogTags.update', id, tagName, sectionSetting, (err, res) => {
+			if (res) {
+				toastr.success('Tag saved');
 			}
 		});
 	},
 
 	'click .tag-btn__delete'() {
 		let tagId = this._id;
+
 		Meteor.call('BlogTags.delete', tagId, function(err, res) {
 			if (err) {
 				console.log('err ' + err);

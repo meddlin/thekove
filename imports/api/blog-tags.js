@@ -13,6 +13,9 @@ BlogTags.schema = new SimpleSchema({
 	slug: {
 		type: String
 	},
+	sectionSetting: {
+		type: Boolean
+	},
 
 	updatedAt: {
 		type: Date
@@ -23,8 +26,12 @@ BlogTags.schema = new SimpleSchema({
 });
 
 if (Meteor.isServer) {
-	Meteor.publish('BlogTags_all', function() {
+	Meteor.publish('BlogTags_all', () => {
 		return BlogTags.find();
+	});
+
+	Meteor.publish('BlogTags_sectionsList', () => {
+		return BlogTags.find({sectionSetting: true});
 	});
 }
 
@@ -44,6 +51,7 @@ Meteor.methods({
 			{ $set: {
 					name: tag_text,
 					slug: tagSlug,
+					sectionSetting: false,
 					createdAt: new Date()
 			}
 		});
@@ -51,9 +59,10 @@ Meteor.methods({
 		return res;
 	},
 
-	'BlogTags.update'(id, updatedName) {
+	'BlogTags.update'(id, updatedName, updatedSectionSetting) {
 		check(id, String);
 		check(updatedName, String);
+		check(updatedSectionSetting, Boolean);
 		
 		let titleSplit = updatedName.split(" ");
 		for (let i = 0; i < titleSplit.length; i++) {
@@ -74,11 +83,23 @@ Meteor.methods({
 			{ $set: 
 				{
 					name: updatedName,
-					slug: updatedSlug
+					slug: updatedSlug,
+					sectionSetting: updatedSectionSetting
 				}
 			});
 
 		return res;
+	},
+
+	'BlogTags.updateSectionSetting'(id, updatedSectionSetting) {
+		check(id, String);
+		check(updatedSectionSetting, Boolean);
+
+		let res = BlogTags.update(id, {
+			$set: {
+				sectionSetting: updatedSectionSetting
+			}
+		})
 	},
 
 	'BlogTags.delete'(id) {

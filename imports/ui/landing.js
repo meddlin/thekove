@@ -34,6 +34,6 @@ Template.landing.onCreated(function() {
 
 	instance.autorun(() => {
 		var subscription = instance.subscribe('BlogPosts_latest');
-		var tagSubscription = instance.subscribe('BlogTags_all');
+		var tagSubscription = instance.subscribe('BlogTags_sectionsList');
 	});
 });

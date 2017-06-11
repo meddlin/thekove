@@ -81,6 +81,13 @@ if (Meteor.isServer) {
 			mode: {$eq: "public"}
 		});
 	});
+
+	Meteor.publish('BlogPosts_python', function() {
+		return BlogPosts.find({
+			tag: 'python',
+			mode: {$eq: 'public'}
+		});
+	});
 }
 
 Meteor.methods({

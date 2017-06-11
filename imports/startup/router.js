@@ -13,6 +13,7 @@ import '../ui/editor/editor.js';
 
 import '../ui/tag-section/section.js';
 import '../ui/tag-section/cpat.js';
+import '../ui/tag-section/python.js';
 import '../ui/post.js';
 
 import '../ui/admin/admin.js';
@@ -40,6 +41,11 @@ FlowRouter.route('/privacy', {
 FlowRouter.route('/blog/tag/cpat', {
 	action: function(params) {
 		BlazeLayout.render('mainLayout', {content: 'cpat'});
+	}
+});
+FlowRouter.route('/blog/tag/python', {
+	action: function(params) {
+		BlazeLayout.render('mainLayout', {content: 'python'});
 	}
 });
 FlowRouter.route('/blog/tag/:_slug', {

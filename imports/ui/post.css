@@ -16,6 +16,25 @@
     display: block;
     margin: 0 auto;
 }
+.post-image-center-caption {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.post-image-lg-center {
+    height: 75%;
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+}
+.post-image-lg-center-caption {
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+    font-style: italic;
+}
+
 .post-block-quote {
 	background-color: lightgray;
 	margin: 0.5em 3.0em 0.5em 3.0em;

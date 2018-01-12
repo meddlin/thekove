@@ -213,6 +213,18 @@ body {
 }
 
 
+.lower-banner {
+	display: grid;
+	grid-template-columns: [fillOne] 10% [bannerContent] 80% [fillTwo] 10%;
+
+	height: 75px;
+}
+.lower-banner > .banner-item {
+	grid-column-start: bannerContent;
+	grid-column-end: bannerContent;
+}
+
+
 footer {
 	background: darkgrey;
     padding: 2em 0 2em 0;

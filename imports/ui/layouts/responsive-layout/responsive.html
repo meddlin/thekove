@@ -1,0 +1,81 @@
+<template name="responsive-layout">
+  <div class="grid">
+    {{> responsiveLayoutHeader}}
+
+    {{> responsiveLayoutLeftside}}
+
+    {{> responsiveLayoutArticle}}
+
+    {{> responsiveLayoutRightside}}
+    
+    {{> responsiveLayoutFooter}}
+  </div>
+</template>
+
+<template name="responsiveLayoutHeader">
+  <header>
+
+    <div>
+      <a href="/" class="navbar-brand">The Kove</a>
+      <span>that place between 'hello world' and semaphore</span>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/about" class="nav-link">About</a></li>
+      {{#if currentUser}}
+        <li><a href="/documents" class="nav-link">Documents</a></li>
+      {{/if}}
+    </ul>
+
+    </header>
+</template>
+
+<template name="responsiveLayoutLeftside">
+  <aside class="sidebar-left">
+    Sidebar Left
+  </aside>
+</template>
+
+<template name="responsiveLayoutArticle">
+  <article>
+    {{> Template.dynamic template=content}}
+  </article>
+</template>
+
+<template name="responsiveLayoutRightside">
+  <aside class="sidebar-right">
+    Right Sidebar
+  </aside>
+</template>
+
+<template name="responsiveLayoutFooter">
+  <footer>
+    <div class="col-md-3 col-xs-12"></div>
+    <div id="center-footer" class="col-md-6 col-xs-12">
+      <div>
+        <a href="{{SiteContents.footer.twitter}}">
+          <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="{{SiteContents.footer.reddit}}">
+          <i class="fa fa-reddit fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="{{SiteContents.footer.github}}">
+          <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="{{SiteContents.footer.pcpart}}">
+          <i class="fa fa-desktop fa-2x" style="font-size: 1.7em" aria-hidden="true"></i>
+        </a>
+      </div>
+      <a href="/privacy">Privacy</a>
+    </div>
+    <div id="right-footer" class="col-md-3 col-xs-12">
+      <div id="blurb">
+        <b>Who Am I?</b>
+        <p>
+          {{SiteContents.footer.blurb}}
+        </p>
+      </div>
+      <img src="{{SiteContents.footer.picLink}}"/>
+    </div>
+  </footer>
+</template>

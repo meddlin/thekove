@@ -2,41 +2,32 @@
 {{#if Template.subscriptionsReady}}
 
 	<div class="row">
-		<div class="col-xs-12 col-sm-2">
-			<div id="landing-sections-gutter">
-				<label>Categories</label>
-				<ul>
-					{{#each tags}}
-						<li><a href="{{pathFor '/blog/tag/:_slug' _slug=slug}}">{{name}}</a></li>
-					{{/each}}
-				</ul>
+		<div id="landing-sections-gutter">
+	      <label>Categories</label>
+	      <ul>
+	        {{#each tags}}
+	          <li><a href="{{pathFor '/blog/tag/:_slug' _slug=slug}}">{{name}}</a></li>
+	        {{/each}}
+	      </ul>
+	    </div>
+	{{#each docs}}
+		<div class="blog-post">
+			<div class="blog-post-title">
+				<a href="{{pathFor '/blog/:_postSlug' _postSlug=slug}}">{{title}}</a>
 			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6">
-			<div class="blog">
-				{{#each docs}}
-					<div class="blog-post">
-						<div class="blog-post-title">
-							<a href="{{pathFor '/blog/:_postSlug' _postSlug=slug}}">{{title}}</a>
-						</div>
-						<div class="blog-subsection">
-							<div class="blog-post-date">
-								<i>{{formattedCreateDate createdAt}}</i>
-							</div>
-							<div class="blog-post-tag">
-								<a href="{{pathFor '/blog/tag/:_slug' _slug=tag}}">{{tag}}</a>
-							</div>
-						</div>
+			<div class="blog-subsection">
+				<div class="blog-post-date">
+					<i>{{formattedCreateDate createdAt}}</i>
+				</div>
+				<div class="blog-post-tag">
+					<a href="{{pathFor '/blog/tag/:_slug' _slug=tag}}">{{tag}}</a>
+				</div>
+			</div>
 {{#markdown}}
 {{this.description}}
 {{/markdown}}
-					</div>
-				{{/each}}
-			</div>
 		</div>
-		<div class="col-xs-12 col-sm-4">
-			<div id="landing-right-gutter"></div>
-		</div>
+	{{/each}}
 	</div>
 
 {{/if}}

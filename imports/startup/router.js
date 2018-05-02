@@ -4,6 +4,8 @@ import '../ui/layouts/portfolio-layout.js';
 import '../ui/layouts/plain-layout.js';
 import '../ui/layouts/blog-post-layout.js';
 
+import '../ui/layouts/responsive-layout/responsive.js';
+
 import '../ui/landing.js';
 import '../ui/about.js';
 import '../ui/privacy.js';
@@ -22,7 +24,7 @@ import jquery from 'jquery';
 
 FlowRouter.route('/', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'landing'});
+		BlazeLayout.render('responsive-layout', {content: 'landing'});
 	}
 });
 
@@ -50,12 +52,12 @@ FlowRouter.route('/blog/tag/python', {
 });
 FlowRouter.route('/blog/tag/:_slug', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'section'});
+		BlazeLayout.render('responsive-layout', {content: 'section'});
 	}
 });
 FlowRouter.route('/blog/:_postSlug', {
 	action: function(params) {
-		BlazeLayout.render('mainLayout', {content: 'post'});
+		BlazeLayout.render('responsive-layout', {content: 'post'});
 	}
 });
 

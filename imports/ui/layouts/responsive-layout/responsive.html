@@ -15,24 +15,26 @@
 <template name="responsiveLayoutHeader">
   <header>
 
-    <div>
-      <a href="/" class="navbar-brand">The Kove</a>
+    <div class="header-main">
+      <a href="/" class="header-main-title">The Kove</a>
       <span>that place between 'hello world' and semaphore</span>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/about" class="nav-link">About</a></li>
-      {{#if currentUser}}
-        <li><a href="/documents" class="nav-link">Documents</a></li>
-      {{/if}}
-    </ul>
+    <div class="header-navbar">
+      <ul>
+        <li><a href="/about" class="nav-link">About</a></li>
+        {{#if currentUser}}
+          <li><a href="/documents" class="nav-link">Documents</a></li>
+        {{/if}}
+      </ul>
+    </div>
 
     </header>
 </template>
 
 <template name="responsiveLayoutLeftside">
   <aside class="sidebar-left">
-    Sidebar Left
+    {{> Template.dynamic template=leftside}}
   </aside>
 </template>
 

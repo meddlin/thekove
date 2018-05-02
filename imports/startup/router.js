@@ -24,7 +24,11 @@ import jquery from 'jquery';
 
 FlowRouter.route('/', {
 	action: function(params) {
-		BlazeLayout.render('responsive-layout', {content: 'landing'});
+		BlazeLayout.render('responsive-layout',
+			{ 
+				content: 'landing',
+				leftside: 'landingLeft'
+			});
 	}
 });
 

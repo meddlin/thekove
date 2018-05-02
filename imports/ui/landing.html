@@ -2,14 +2,6 @@
 {{#if Template.subscriptionsReady}}
 
 	<div class="row">
-		<div id="landing-sections-gutter">
-	      <label>Categories</label>
-	      <ul>
-	        {{#each tags}}
-	          <li><a href="{{pathFor '/blog/tag/:_slug' _slug=slug}}">{{name}}</a></li>
-	        {{/each}}
-	      </ul>
-	    </div>
 	{{#each docs}}
 		<div class="blog-post">
 			<div class="blog-post-title">
@@ -31,4 +23,15 @@
 	</div>
 
 {{/if}}
+</template>
+
+<template name="landingLeft">
+	<div id="landing-sections-gutter">
+	  <label>Categories</label>
+	  <ul>
+	    {{#each tags}}
+	      <li><a href="{{pathFor '/blog/tag/:_slug' _slug=slug}}">{{name}}</a></li>
+	    {{/each}}
+	  </ul>
+</div>
 </template>

@@ -36,6 +36,7 @@ footer {
 header {
   background: #eaeaea;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 10vh;
@@ -46,6 +47,29 @@ article {
 }
 
 /* TheKove specific styles */
+.header-main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+}
+.header-main-title {
+  color: #259C93;
+  font-size: 2em;
+}
+.header-navbar {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+  .header-navbar > ul {
+    list-style-type: none;
+    display: flex;
+  }
+  .header-navbar > ul > li {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
 .post-content {
   margin-left: 5em;
 }
